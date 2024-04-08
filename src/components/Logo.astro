@@ -1,6 +1,15 @@
+---
+export interface Props {
+    isoColor?: string;
+}
+const {
+    isoColor = '../../isologo.svg',
+} = Astro.props
+
+---
 <div>
     <img
-        src="/isologo.svg"
+        src={isoColor}
         class="ucasal-logo w-36"
         alt="UCASAL LOGO"
     />
