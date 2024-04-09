@@ -1,16 +1,56 @@
-<section class="bg-black h-screen w-full text-center relative overflow-hidden z-0 flex flex-col justify-end">
+<main class="snap-y snap-mandatory relative w-full h-screen overflow-hidden">
+  <div class="snap-center">
+      <section
+          class="bg-black h-screen w-full text-center relative overflow-hidden z-0 flex flex-col justify-end">
+          <div class="flex justify-center z-50">
+              <h1 class="block text-white rounded-lg text-xl font-light py-2 px-4 text-center leading-8 tracking-[0.025em] transform-gpu lg:text-3xl mb-5 tracking-wide"
+                  style="text-shadow: 0 0 30px #fff">Cambiar esto <br><span class="font-black">Por otra
+                      cosa</span></h1>
+          </div>
+          <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
+              <video class="w-full h-full">
+                  <source media="(max-width: 767px)" srcset="/emcabezado-distanciaMobil.mp4" />
+                  <source media="(min-width: 768px)" srcset="/emcabezado-distanciaMobil.mp4" />
+                  <img src="ingreso-carreras-2022/miniaturas/seguridad.jpg" class="w-full h-full object-cover"
+                      alt="Descripción de la imagen" />
+                  <div class="overlay"></div>
+              </video>
+          </div>
+
+          <div class="relative z-10 mb-10 mx-auto w-4/5 max-w-xs">
+              <a href="#formu"
+                  class="block text-white bg-[#ee1818] border border-white rounded-lg text-base font-medium py-2 px-3 text-center transition-transform transform-gpu hover:scale-105 hover:bg-orange-800"
+                  onclick="scrollToForm('#formu')">
+                  ¡Más Info!
+              </a>
+          </div>
+      </section>
+  </div>
+</main>
+<!-- <section class="bg-black h-screen w-full text-center relative overflow-hidden z-0 flex flex-col justify-end">
     <div class="absolute top-0 left-0 w-full h-full">
       <video class="w-full h-full object-cover" autoplay loop muted src="/emcabezado-distanciaMobil.mp4"></video>
-  </div>
-  
+    </div>
       <div class="relative z-10 mb-10 mx-auto w-4/5 max-w-xs">
           <a href="#form-section" class="block text-white bg-orange-700 border border-white rounded-lg text-base font-medium py-2 px-3 text-center transition-transform transform-gpu hover:scale-105 hover:bg-orange-600">
             ¡Más Info!
           </a>
-        </div>        
-         
-</section>
+      </div>        
+</section>-->
 
 <h1 class="bg-[#B11111] bg-auto text-white h-[40px] flex items-center justify-center text-lg font-extrabold">
 EDUCANDO CORAZONES INTELIGENTES
 </h1>
+
+<style> 
+.overlay {
+            top: 0;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            /* Ajusta la opacidad a tu gusto */
+            height: 100%;
+            z-index: 1;
+}
+</style>
