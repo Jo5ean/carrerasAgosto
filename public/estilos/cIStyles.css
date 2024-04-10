@@ -1,45 +1,26 @@
 
-    .slider-wrapper {
-        position: relative;
-        width: 100%;
-        height: auto;
-        margin: auto;
-        overflow: hidden;
+@keyframes slide {
+    from {
+        transform: translateX(1%);
     }
-    
-    .slider {
-        width: 100%;
-        height: auto;
+    to {
+        transform: translateX(-90%);
+    }
+}
+
+    .logos {
         overflow: hidden;
+        padding: 80px 50px;
+        background: white;
         white-space: nowrap;
     }
+    .logos-slide {
+        display: inline-block;
+        justify-content: space-between;
+        animation: 15s slide infinite linear;
+    }
 
-    .slider .slide {
-        width: 200px;
-        padding: 20px;
+    .logos-slide img {
+        height: 100px;
+        margin: 0 20px;
     }
-    
-    .slider .slide .image-container {
-        position: relative;
-        width: 100%;
-    }
-    
-    .slider .slide img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-    }
-    .slider .slide-track {
-        display: inline-flex;
-        animation: 40s scroll linear infinite;
-        width: calc(100px * 50);
-    }
-    @keyframes scroll {
-                from {
-                    transform: translateX(0);
-                }
-    
-                to {
-                    transform: translateX(-100%);
-                }
-            }
