@@ -1,0 +1,41 @@
+---
+import Card from "./Card.astro";
+import { datita } from "../scripts/datita.js";
+const codigosFiltrados = [9, 10, 11, 14, 15, 16, 30, 88, 96, 133, 191, 196, 212, 244, 250, 336, 355, 360, 363];
+---
+<div class="hidden sm:grid-cols-2 p-5 mb-5 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 items-center">
+    {datita
+        .filter((item) => item.tipcar === "Grado" && codigosFiltrados.includes(item.codcar))
+        .map(({ codcar, nombre, codare, modo, duracion }) => (
+            <Card
+                codcar={codcar.toString()}
+                nombre={nombre}
+                codare={codare.toString()}
+                modo={modo.toString()}
+                duracion={duracion}
+            />
+        ))
+    }
+    <div class="flex justify-center items-center">
+        <a href="https://ucasal.edu.ar/inscripciones" target="_blank">
+            <div class="max-w-full">
+                <video width="100%" id="banner" autoplay loop muted>
+                    <source src="/bannerNacho6.mp4" type="video/mp4" />
+                    <source src="/bannerNacho6.ogg" type="video/ogg" />
+                </video>
+            </div>
+        </a>
+    </div>
+    {datita
+        .filter((item) => item.tipcar === "Pregrado" && codigosFiltrados.includes(item.codcar))
+        .map(({ codcar, nombre, codare, modo, duracion }) => (
+            <Card
+                codcar={codcar.toString()}
+                nombre={nombre}
+                codare={codare.toString()}
+                modo={modo.toString()}
+                duracion={duracion}
+            />
+        ))
+    }
+</div>
