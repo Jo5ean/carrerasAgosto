@@ -1,10 +1,12 @@
 ---
 import Logo from "../components/Logo.astro";
 import BannerPromo from "./BannerPromo.astro";
+import Container from "./Container.astro";
 ---
 <div class="fixed top-0 left-0 w-full z-50">
   <BannerPromo />
   <nav class="bg-white bg-opacity-90 w-full border-b border-gray-200">
+<Container> 
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-1">
     <a href="#" class="flex items-center hover:scale-105" onclick="scrollToTop()">
       <Logo isoColor="../../isologo.svg"/>
@@ -47,5 +49,6 @@ import BannerPromo from "./BannerPromo.astro";
         </ul>
       </div>
     </div>
+</Container>
   </nav>
 </div>
