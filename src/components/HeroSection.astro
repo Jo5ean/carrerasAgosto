@@ -1,29 +1,35 @@
 <main class="snap-y snap-mandatory relative w-full h-screen overflow-hidden">
   <div class="snap-center">
-      <section
-          class="bg-black h-screen w-full text-center relative overflow-hidden z-0 flex flex-col justify-end">
-        <div class="justify-between flex items-center py-3 m-8">
-            <div class="ml-5 py-5 z-50">
-                <h1 class="block text-white rounded-lg text-3xl font-light py-2 px-4 text-left leading-8 tracking-[0.025em] transform-gpu lg:text-4xl mb-5" style="text-shadow: 0 0 30px #fff">
-                  Inicia tu<br><span class="font-black">Carrera en AGOSTO</span>
-                </h1>
-            </div>
-          <div class="items-center mx-8 z-50">
-            <a href="#formu" class="block text-dark bg-white bg-opacity-70 border border-white rounded-lg text-base font-medium py-2 px-4 text-center transition-transform transform-gpu hover:scale-105 hover:bg-orange-800 hover:text-white focus:outline-none focus:ring-4 focus:ring-orange-300" onclick="scrollToForm('#formu')">
-              ¡Más Info!
-            </a>
-          </div>
+    <section
+      class="bg-black h-screen w-full text-center relative overflow-hidden z-0 flex flex-col justify-end lg:justify-center">
+      <div class="justify-start grid grid-cols-1 items-center lg:py-3 mb-24">
+        <div class="z-50">
+          <h1 class="block leading-3 text-white rounded-lg text-4xl md:text-5xl font-thin py-2 text-left transform-gpu tracking-wide" style="text-shadow: 0 0 60px #0000; font-family: \'Bebas Neue\', sans-serif;">
+            <span class="text-3xl font-thin md:text-6xl tracking-wide">INICI&Aacute; TU CARRERA</span><br>
+            <span class="text-6xl font-semibold md:text-9xl tracking-wide">DESEADA</span>
+          </h1>
         </div>
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
-            <picture class="w-full h-full">
-                <source media="(max-width: 767px)" srcset="/ingreso-carreas-agosto-mobile.webp" />
-                <source media="(min-width: 768px)" srcset="/ingreso-carreas-agosto-desktop.webp" />
-                <img src="/ingreso-carreas-agosto-mobile.webp" class="w-full h-full object-cover"
-                alt="Descripción de la imagen" />
-                <div class="lg:overlay"></div>
-            </picture>
-          </div>
-      </section>
+        <div class="items-center z-50 xs:justify-items-start lg:justify-start flex">
+          <button class="buttonno font-bold hover:bg-[#ee1818]" onclick="scrollToForm('#formu')">
+            ¡Solicitar Informacion!
+            <svg fill="currentColor" viewBox="0 0 24 24" class="icon rotate-90">
+              <path clip-rule="evenodd"
+                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                fill-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
+        <picture class="w-full h-full">
+          <source media="(max-width: 767px)" srcset="../ingreso-carreas-agosto-mobile.webp" />
+          <source media="(min-width: 768px)" srcset="../ingreso-carreas-agosto-desktop.webp" />
+          <img src="../ingreso-carreas-agosto-mobile.webp" class="w-full h-full object-cover"
+            alt="Inicia en Agosto" />
+          <div class="overlay hidden md:block lg:block xl:block"></div>
+        </picture>
+      </div>
+    </section>
   </div>
 </main>
 <h1 class="bg-[#B11111] bg-auto text-white h-[40px] flex items-center justify-center text-lg font-extrabold">
@@ -41,4 +47,62 @@ EDUCANDO CORAZONES INTELIGENTES
             height: 100%;
             z-index: 1;
 }
+    .buttonno {
+      position: relative;
+      transition: all 0.3s ease-in-out;
+      padding-block: 0.5rem;
+      padding-inline: 1.25rem;
+      background-color: #B11111;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffff;
+      gap: 10px;
+      /*       font-weight: bold;
+ */
+      border: 3px solid #ffffff4d;
+      outline: none;
+      overflow: hidden;
+      font-size: 15px;
+    }
+
+    .zoom-effect {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .buttonno:hover {
+      transform: scale(1.05);
+      border-color: #fff9;
+    }
+
+    .buttonno:hover .icon {
+      transform: translate(4px);
+    }
+
+    .buttonno:hover::before {
+      animation: shine 1.5s ease-out infinite;
+    }
+
+    .buttonno::before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100%;
+      background-image: linear-gradient(120deg,
+          rgba(255, 255, 255, 0) 30%,
+          rgba(255, 255, 255, 0.8),
+          rgba(255, 255, 255, 0) 70%);
+      top: 0;
+      left: -100px;
+      opacity: 0.6;
+    }
 </style>
