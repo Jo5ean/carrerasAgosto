@@ -4,8 +4,8 @@ import Container from "./Container.astro"
 <main class="snap-y snap-mandatory relative w-full h-screen overflow-hidden">
   <div class="snap-center">
     <section class="bg-black h-screen w-full text-center relative overflow-hidden z-0 flex flex-col justify-end lg:justify-center">
-<Container>
-      <div class="justify-start grid grid-cols-1 items-center lg:py-3">
+    <Container>
+      <div class="justify-start grid grid-cols-1 mb-24 lg:mb-0">
         <div class="z-50">
           <h1 class="block leading-3 text-white rounded-lg text-4xl md:text-5xl font-thin py-2 text-left transform-gpu tracking-wide" style="text-shadow: 0 0 60px #0000; font-family: \'Bebas Neue\', sans-serif;">
             <span class="text-3xl font-thin md:text-6xl tracking-wide">INICI&Aacute; TU CARRERA</span><br>
@@ -39,74 +39,3 @@ import Container from "./Container.astro"
 <h1 class="bg-[#B11111] bg-auto text-white h-[40px] flex items-center justify-center text-lg font-extrabold">
 EDUCANDO CORAZONES INTELIGENTES
 </h1>
-
-<style> 
-.overlay {
-            top: 0;
-            position: absolute;
-            width: 100%;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.2);
-            /* Ajusta la opacidad a tu gusto */
-            height: 100%;
-            z-index: 1;
-}
-    .buttonno {
-      position: relative;
-      transition: all 0.3s ease-in-out;
-      padding-block: 0.5rem;
-      padding-inline: 1.25rem;
-      background-color: #B11111;
-      border-radius: 9999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffff;
-      gap: 10px;
-      /*       font-weight: bold;
- */
-      border: 3px solid #ffffff4d;
-      outline: none;
-      overflow: hidden;
-      font-size: 15px;
-    }
-
-    .zoom-effect {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s ease;
-    }
-
-    .icon {
-      width: 24px;
-      height: 24px;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .buttonno:hover {
-      transform: scale(1.05);
-      border-color: #fff9;
-    }
-
-    .buttonno:hover .icon {
-      transform: translate(4px);
-    }
-
-    .buttonno:hover::before {
-      animation: shine 1.5s ease-out infinite;
-    }
-
-    .buttonno::before {
-      content: "";
-      position: absolute;
-      width: 100px;
-      height: 100%;
-      background-image: linear-gradient(120deg,
-          rgba(255, 255, 255, 0) 30%,
-          rgba(255, 255, 255, 0.8),
-          rgba(255, 255, 255, 0) 70%);
-      top: 0;
-      left: -100px;
-      opacity: 0.6;
-    }
-</style>

@@ -1,26 +1,154 @@
 
+
+@font-face {
+    font-family: "Museo Sans";
+    font-style: normal;
+    font-weight: 500;
+    src: local("Museo Sans"),
+      url("/fonts/MuseoSans_500.otf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "Museo Sans";
+    font-style: normal;
+    font-weight: 700;
+    src: local("Museo Sans"),
+      url("/fonts/MuseoSans_700.otf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "Museo Sans";
+    font-style: normal;
+    font-weight: 900;
+    src: local("Museo Sans"),
+      url("/fonts/MuseoSans_900.otf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "Museo Sans";
+    font-style: normal;
+    font-weight: 300;
+    src: local("Museo Sans"),
+      url("/fonts/MuseoSans-300.otf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "Museo Sans 900";
+    font-style: normal;
+    font-weight: 300;
+    src: local("Museo Sans"),
+      url("/fonts/MuseoSans_900.otf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "Museo Sans 500";
+    font-style: normal;
+    font-weight: 300;
+    src: local("Museo Sans"),
+      url("/fonts/MuseoSans_500.otf") format("truetype");
+  }
+
 @keyframes slide {
     from {
         transform: translateX(1%);
     }
+
     to {
         transform: translateX(-90%);
     }
 }
 
-    .logos {
-        overflow: hidden;
-        padding: 80px 50px;
-        background: white;
-        white-space: nowrap;
-    }
-    .logos-slide {
-        display: inline-block;
-        justify-content: space-between;
-        animation: 15s slide infinite linear;
-    }
+.logos {
+    overflow: hidden;
+    padding: 80px 50px;
+    background: white;
+    white-space: nowrap;
+}
 
-    .logos-slide img {
-        height: 100px;
-        margin: 0 20px;
-    }
+.logos-slide {
+    display: inline-block;
+    justify-content: space-between;
+    animation: 15s slide infinite linear;
+}
+
+.logos-slide img {
+    height: 100px;
+    margin: 0 20px;
+}
+
+.overlay {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Ajusta la opacidad a tu gusto */
+    height: 100%;
+    z-index: 1;
+}
+
+.buttonno {
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    padding-block: 0.5rem;
+    padding-inline: 1.25rem;
+    background-color: #B11111;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffff;
+    gap: 10px;
+    /*       font-weight: bold;
+*/
+    border: 3px solid #ffffff4d;
+    outline: none;
+    overflow: hidden;
+    font-size: 15px;
+}
+
+.zoom-effect {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease-in-out;
+}
+
+.buttonno:hover {
+    transform: scale(1.05);
+    border-color: #fff9;
+}
+
+.buttonno:hover .icon {
+    transform: translate(4px);
+}
+
+.buttonno:hover::before {
+    animation: shine 1.5s ease-out infinite;
+}
+
+.buttonno::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    background-image: linear-gradient(120deg,
+            rgba(255, 255, 255, 0) 30%,
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 255, 255, 0) 70%);
+    top: 0;
+    left: -100px;
+    opacity: 0.6;
+}
+.bigTitle {
+    display: inline-block;
+    color: #ee1818;
+    font-weight: 900;
+    font-size: 1.5em;
+    font-family: "Museo Sans";
+}
