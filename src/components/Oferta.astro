@@ -1,43 +1,51 @@
 ---
 import Card from "./Card.astro";
 import { datita } from "../scripts/datita.js";
-const codigosFiltrados = [9, 10, 11, 14, 15, 16, 30, 88, 96, 133, 191, 196, 212, 244, 250, 336, 355, 360, 363];
+import Container from "./Container.astro";
+
+let filteredData = datita;
+
+function handleSearch(event:any) {
+  const searchValue = event.target.value.toLowerCase();
+  filteredData = datita.filter(item =>
+    item.nombre.toLowerCase().includes(searchValue)
+  );
+}
 ---
-<div class="hidden sm:grid-cols-2 p-5 mb-5 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 items-center">
-    {datita
-        .filter((item) => item.tipcar === "Grado" && codigosFiltrados.includes(item.codcar))
-        .map(({ codcar, nombre, codare, modo, duracion,nom_landing }) => (
-            <Card
-                codcar={codcar.toString()}
-                nombre={nombre}
-                codare={codare.toString()}
-                modo={modo.toString()}
-                duracion={duracion}
-                nom={nom_landing}
-            />
-        ))
-    }
-    <div class="flex justify-center items-center">
-        <a href="https://ucasal.edu.ar/inscripciones" target="_blank">
-            <div class="max-w-full">
-                <video width="100%" id="banner" autoplay loop muted>
-                    <source src="/bannerNacho6.mp4" type="video/mp4" />
-                    <source src="/bannerNacho6.ogg" type="video/ogg" />
-                </video>
-            </div>
-        </a>
+
+<Container>
+  <form class="max-w-md mx-auto my-10" onsubmit="return false;"></form>
+    <div class="relative">
+      <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+        <!-- Icono SVG aquí -->
+      </div>
+      <input
+        type="search"
+        id="default-search"
+        class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-red-500 focus:border-red-500"
+        placeholder="Oferta academica"
+        required
+        oninput="{handleSearch}"
+      />
+      <button
+        class="text-white absolute end-2.5 bottom-2.5 bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2"
+        >Buscar</button
+      >
     </div>
-    {datita
-        .filter((item) => item.tipcar === "Pregrado" && codigosFiltrados.includes(item.codcar))
-        .map(({ codcar, nombre, codare, modo, duracion,nom_landing }) => (
-            <Card
-                codcar={codcar.toString()}
-                nombre={nombre}
-                codare={codare.toString()}
-                modo={modo.toString()}
-                duracion={duracion}
-                nom={nom_landing}
-            />
-        ))
+  </form>
+  <div class="grid grid-cols-1 sm:grid-cols-3 2xl:grid-cols-4">
+    {
+      filteredData.map(({ codcar, nombre, codare, modo, duracion }) => (
+        <Card
+          codcar={codcar.toString()}
+          nombre={nombre}
+          codare={codare.toString()}
+          modo={modo.toString()}
+          duracion={duracion}
+          nom={nombre}
+        />
+      ))
     }
-</div>
+  </div>
+</Container>
+
