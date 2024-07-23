@@ -2,7 +2,7 @@
 import Logo from "../components/Logo.astro";
 import BannerPromo from "./BannerPromo.astro";
 import Container from "./Container.astro";
-import Boton from "./boton.astro";
+import Button from "./Button.astro"
 ---
 <div class="fixed top-0 left-0 w-full z-50">
   <BannerPromo />
@@ -13,7 +13,9 @@ import Boton from "./boton.astro";
       <Logo isoColor="../../isologo.svg"/>
     </a>
     <div class="flex md:order-2">
-      <Boton label="Quiero inscribirme" class=" hidden lg:block" onclick="https://www.ucasal.edu.ar/inscripciones/" />
+      <div class="hidden lg:block">
+        <Button label="Quiero inscribirme" dir="location.href='https://www.ucasal.edu.ar/inscripciones/'"/>
+      </div>
       <button data-collapse-toggle="navbar-sticky" type="button"
         class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
         aria-controls="navbar-sticky" aria-expanded="false">
@@ -28,7 +30,9 @@ import Boton from "./boton.astro";
       <ul
         class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-orange-100 md:flex-row md:space-x-8 md:mt-0 md:border-0">
         <li>
-          <Boton label="Quiero inscribirme" class="md:mr-0 hidden md:block lg:block xl:block" onclick="https://www.ucasal.edu.ar/inscripciones/"/>
+          <div class="block lg:hidden">
+            <Button label="Quiero inscribirme" dir="location.href='https://www.ucasal.edu.ar/inscripciones/'"/>
+          </div>
         </li>
         <li>
           <a href="#carrerasAccordeon"

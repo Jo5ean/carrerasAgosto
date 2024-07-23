@@ -24,3 +24,7 @@
         height: 100px;
         margin: 0 20px;
     }
+    .zoom-effect {
+        transition: transform 0.5s;
+        transform: scale(1.1);
+      }

@@ -16,12 +16,12 @@ const {
   nom
 } = Astro.props 
 ---
-<div class="flex justify-center mb-5 mx-auto w-[220px] h-[250px] lg:w-[250px] lg:h-[360px]">
+<div class="flex justify-center mb-5 mx-auto w-[220px] h-[250px] lg:w-[250px] lg:h-[360px]" style="width: 250px; height: 360px;">
   <div class="max-w-lg w-full h-full rounded-2xl overflow-hidden shadow-lg relative transition-transform hover:scale-105 hover:shadow-xl border-2">
     <!-- Parte 1: Imagen -->
     <div class="relative h-32 lg:h-52">
-<!--       <img src={`/agosto/${nom}.jpg`} alt=`${nombre}` class="absolute w-full h-full object-cover object-center">
- -->    </div>
+      <!-- <img src={`/agosto/${nom}.jpg`} alt=`${nombre}` class="absolute w-full h-full object-cover object-center"> -->
+    </div>
     <!-- Parte 2: Icono -->
     <img class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-[75%] lg:-translate-y-[5%] w-16 h-12 lg:w-20 lg:h-14" src={`./iconoCarrera/${codare=="30"?"13":codare}.svg`} alt="icono carta">
     <!-- Parte 3: Título -->
@@ -44,4 +44,3 @@ const {
     </div>
   </div>
 </div>
-

@@ -1,7 +1,8 @@
 ---
-const { label, href } = Astro.props;
+const { label, dir } = Astro.props
 ---
-<button onclick={href} class="hidden sm:block text-white bg-[#B11111] hover:bg-[#ee1818] focus:ring-4 focus:outline-none focus:ring-orange-300 font-bold rounded-full text-xs px-4 py-2 text-center buttonno">
+<button onclick={dir} class="hidden sm:block text-white bg-[#B11111] hover:bg-[#ee1818] focus:ring-4 focus:outline-none 
+focus:ring-orange-300 font-bold rounded-full text-xs px-4 py-2 text-center buttonno">
     {label}
     <svg fill="currentColor" viewBox="0 0 24 24" class="icon rotate-90">
         <path clip-rule="evenodd"

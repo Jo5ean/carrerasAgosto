@@ -1,6 +1,6 @@
 ---
 import Container from "./Container.astro"
-import Boton from "./boton.astro"
+import Button from "./Button.astro"
 ---
 <main class="snap-y snap-mandatory relative w-full h-screen overflow-hidden">
   <div class="snap-center">
@@ -14,7 +14,15 @@ import Boton from "./boton.astro"
           </h1>
         </div>
         <div class="items-center z-50 xs:justify-items-start lg:justify-start flex">
-          <Boton label="Solicitar Informacion" onclick="scrollToForm('#formu')" >
+          <button onclick="scrollToForm('#formu')" class="hidden sm:block text-white bg-[#B11111] hover:bg-[#ee1818] focus:ring-4 focus:outline-none 
+focus:ring-orange-300 font-bold rounded-full text-xs px-4 py-2 text-center buttonno">
+    Solicito informacion
+    <svg fill="currentColor" viewBox="0 0 24 24" class="icon rotate-90">
+        <path clip-rule="evenodd"
+        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+        fill-rule="evenodd"></path>
+    </svg>
+</button>
         </div>
       </div>
       <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
@@ -34,7 +42,34 @@ import Boton from "./boton.astro"
 EDUCANDO CORAZONES INTELIGENTES
 </h1>
 
-<style> 
+<script is:inline>
+  function scrollToForm() {
+  var componente = document.getElementById("pedidoinfo"); // Obtener el componente
+
+  // Calcular la posición del componente
+  var componentePosicion = componente.offsetTop;
+
+  // Hacer scroll hasta la posición del componente
+  window.scrollTo({
+    top: componentePosicion,
+    behavior: "smooth"
+  });
+
+  // Esperar un tiempo antes de aplicar el zoom
+  setTimeout(function () {
+    // Añadir la clase de efecto de zoom al componente
+    componente.classList.add("zoom-effect");
+
+    // Esperar un tiempo antes de quitar el zoom
+    setTimeout(function () {
+      // Quitar la clase de efecto de zoom
+      componente.classList.remove("zoom-effect");
+    }, 1000); // Ajusta el tiempo de espera según tus necesidades
+  }, 500); // Ajusta el tiempo de espera según tus necesidades
+}
+</script>
+
+<style>
 .overlay {
             top: 0;
             position: absolute;
@@ -44,5 +79,63 @@ EDUCANDO CORAZONES INTELIGENTES
             /* Ajusta la opacidad a tu gusto */
             height: 100%;
             z-index: 1;
-}
+        }
+     .buttonno {
+      position: relative;
+      transition: all 0.3s ease-in-out;
+      padding-block: 0.5rem;
+      padding-inline: 1.25rem;
+      background-color: #B11111;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffff;
+      gap: 10px;
+      /*       font-weight: bold;
+ */
+      border: 3px solid #ffffff4d;
+      outline: none;
+      overflow: hidden;
+      font-size: 15px;
+    }
+
+    .zoom-effect {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .buttonno:hover {
+      transform: scale(1.05);
+      border-color: #fff9;
+    }
+
+    .buttonno:hover .icon {
+      transform: translate(4px);
+    }
+
+    .buttonno:hover::before {
+      animation: shine 1.5s ease-out infinite;
+    }
+
+    .buttonno::before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100%;
+      background-image: linear-gradient(120deg,
+          rgba(255, 255, 255, 0) 30%,
+          rgba(255, 255, 255, 0.8),
+          rgba(255, 255, 255, 0) 70%);
+      top: 0;
+      left: -100px;
+      opacity: 0.6;
+    }
 </style>

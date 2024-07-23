@@ -1,39 +1,45 @@
 ---
+// Importando componentes necesarios
 import Card from "./Card.astro";
 import { datita } from "../scripts/datita.js";
 import Container from "./Container.astro";
 
+// Datos filtrados inicialmente igual a todos los datos
 let filteredData = datita;
 
-function handleSearch(event:any) {
+// Función para manejar la búsqueda
+function handleSearch(event) {
   const searchValue = event.target.value.toLowerCase();
-  filteredData = datita.filter(item =>
-    item.nombre.toLowerCase().includes(searchValue)
+  filteredData = datita.filter(({ nombre }) =>
+    nombre.toLowerCase().includes(searchValue)
   );
 }
 ---
 
 <Container>
-  <form class="max-w-md mx-auto my-10" onsubmit="return false;"></form>
-    <div class="relative">
+  <form class="max-w-md mx-auto my-10" @submit.prevent>
+    <div class="relative mb-5">
       <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
         <!-- Icono SVG aquí -->
+        <svg class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
       </div>
       <input
         type="search"
         id="default-search"
-        class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-red-500 focus:border-red-500"
-        placeholder="Oferta academica"
+        class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+        placeholder="Oferta académica"
         required
-        oninput="{handleSearch}"
+        @input="{handleSearch}"
       />
       <button
-        class="text-white absolute end-2.5 bottom-2.5 bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2"
+        class="text-white absolute end-2.5 bottom-2.5 bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2"
         >Buscar</button
       >
     </div>
   </form>
-  <div class="grid grid-cols-1 sm:grid-cols-3 2xl:grid-cols-4">
+  <div class="grid grid-cols-1 sm:grid-cols-3 2xl:grid-cols-4 gap-4">
     {
       filteredData.map(({ codcar, nombre, codare, modo, duracion }) => (
         <Card
@@ -48,4 +54,3 @@ function handleSearch(event:any) {
     }
   </div>
 </Container>
-
