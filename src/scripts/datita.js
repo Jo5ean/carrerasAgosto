@@ -527,14 +527,58 @@ const datita = [
     "description": "Estudia Licenciatura en kinesiología y fisioterapia  en la UCASAL"
   },
   {
-    "codcar": 223,
+    "codcar": 7,
     "tipcar": "Grado",
-    "nombre": "Licenciatura en Periodismo",
+    "nombre": "Locutor Nacional",
     "modo": 1,
-    "duracion": "4 años",
+    "duracion": "3 años",
     "codare": 11,
-    "porque": "<div>\n\t\t<div class=\"w-100\">\n\t\t<div class=\"row align-items-stretch justify-content-center pt-3\">\n\t\t<div class=\"col-12 col-sm-6 borde_tabla min_40 flexbox\">\n\t\t<div class=\"container\">\n\t\t<h1 class=\"plan_anio text-center\" style=\"color: #00427f;\">\n1° AÑO\n\n\t\t\t\t</h1>\n\t\t\t\t<p class=\"plan-estudio-text\">\nTALLER DE REDACCIÓN  <br>\nPENSAMIENTO FILOSÓFICO I  <br>\nPSICOLOGÍA SOCIAL  <br>\nTEORÍA DE LA COMUNICACIÓN I  <br>\nDISEÑO EN COMUNICACIÓN VISUAL  <br>\nEXPRESIÓN ORAL Y ESCRITA  <br>\nPENSAMIENTO FILOSÓFICO II  <br>\nINFORMÁTICA  <br>\nESTADÍSTICA  <br>\nTEORÍA DE LA COMUNICACIÓN II  <br>\nPERIODISMO GENERAL              \n <br>\n\n\t\t</p>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n<div>\n\t\t<div class=\"w-100\">\n\t\t<div class=\"row align-items-stretch justify-content-center pt-3\">\n\t\t<div class=\"col-12 col-sm-6 borde_tabla min_40 flexbox\">\n\t\t<div class=\"container\">\n\t\t<h1 class=\"plan_anio text-center\" style=\"color: #00427f;\">\n2° AÑO\n\n\t\t\t\t</h1>\n\t\t\t\t<p class=\"plan-estudio-text\">\nTEOLOGÍA I  <br>\nHISTORIA ARGENTINA I  <br>\nSEMIÓTICA GENERAL Y APLICADA  <br>\nTALLER DE FOTOGRAFÍA  <br>\nDISEÑO Y PRODUCCIÓN AUDIOVISUAL  <br>\nTALLER DE PERIODISMO ESCRITO  <br>\nTEOLOGÍA II  <br>\nHISTORIA ARGENTINA II  <br>\nLINGUÍSTICA Y SOCIOLINGUÍSTICA  <br>\nESTÉTICA E HISTORIA DEL ARTE  <br>\nTALLER DE PERIODISMO RADIAL  <br>\nPERIODISMO ESPECIALIZADO I (DEPORTIVO)      \n <br>\n\n\t\t</p>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n<div>\n\t\t<div class=\"w-100\">\n\t\t<div class=\"row align-items-stretch justify-content-center pt-3\">\n\t\t<div class=\"col-12 col-sm-6 borde_tabla min_40 flexbox\">\n\t\t<div class=\"container\">\n\t\t<h1 class=\"plan_anio text-center\" style=\"color: #00427f;\">\n3° AÑO\n\n\t\t\t\t</h1>\n\t\t\t\t<p class=\"plan-estudio-text\">\nMETODOLOGÍA DE LA INVESTIGACIÓN EN COMUNICACIONES  <br>\nLITERATURA  <br>\nINTRODUCCIÓN A LAS CIENCIAS POLÍTICAS  <br>\nTALLER DE PERIODISMO TELEVISIVO  <br>\nPERIODISMO ESPECIALIZADO II (CULTURAL Y DE ESPECTÁCULOS)  <br>\nMEDIOS ALTERNATIVOS Y PERIODISMO SOCIAL  <br>\nDOCTRINA SOCIAL DE LA IGLESIA  <br>\nCOMUNICACIÓN DIGITAL  <br>\nECONOMÍA  <br>\nRÉGIMEN LEGAL DE LAS COMUNICACIONES  <br>\nTALLER DE PERIODISMO DIGITAL  <br>\nPERIODISMO ESPECIALIZADO III (JUDICIAL Y POLICIAL)  <br>\nTALLER DE PRÁCTICA PROFESIONAL     \n <br>\n\n\t\t</p>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n<div>\n\t\t<div class=\"w-100\">\n\t\t<div class=\"row align-items-stretch justify-content-center pt-3\">\n\t\t<div class=\"col-12 col-sm-6 borde_tabla min_40 flexbox\">\n\t\t<div class=\"container\">\n\t\t<h1 class=\"plan_anio text-center\" style=\"color: #00427f;\">\n4° AÑO\n\n\t\t\t\t</h1>\n\t\t\t\t<p class=\"plan-estudio-text\">\nANTROPOLOGÍA CULTURAL  <br>\nTALLER DE INVESTIGACIÓN PERIODÍSTICA  <br>\nPROYECTO DE TESIS  <br>\nSOCIOLOGÍA  <br>\nANÁLISIS DEL DISCURSO  <br>\nPERIODISMO ESPECIALIZADO IV (ECONÓMICO)  <br>\nÉTICA PROFESIONAL  <br>\nTALLER DE TESIS  <br>\nHISTORIA DE LOS MOVIMIENTOS SOCIALES Y POLÍTICOS  <br>\nOPINIÓN PÚBLICA  <br>\nPERIODISMO ESPECIALIZADO V (POLÍTICO)  <br>\nPRÁCTICA PROFESIONAL ASISTIDA      \n <br>\n\n\t\t</p>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>",
-    "description": "Estudia Licenciatura en periodismo  en la UCASAL"
+    "plan_estudios": {
+      "1° AÑO": [
+        "INGLÉS I",
+        "CUERPO Y VOZ",
+        "PRÁCTICA INTEGRAL DE RADIO I",
+        "LOCUCIÓN I",
+        "FONIATRÍA I",
+        "PRÁCTICA INTEGRAL DE TELEVISIÓN I",
+        "FUNDAMENTOS DE TECNOLOGÍA",
+        "LIBRETOS Y GUIONES",
+        "INTRODUCCIÓN A LOS MEDIOS COMUNICACIÓN SOCIAL",
+        "PRONUNCIACIÓN DE FRANCÉS",
+        "PRONUNCIACIÓN DE ALEMÁN"
+      ],
+      "2° AÑO": [
+        "LITERATURA",
+        "INGLÉS II",
+        "ACTUACIÓN DRAMÁTICA",
+        "PRINCIPIOS DE ESTÉTICA E HISTORIA DEL ARTE",
+        "PRÁCTICA INTEGRAL DE RADIO II",
+        "LOCUCIÓN II",
+        "FONIATRÍA II",
+        "PRÁCTICA INTEGRAL DE TELEVISIÓN II",
+        "ORATORIA",
+        "PRONUNCIACIÓN DE ITALIANO",
+        "REDACCIÓN PERIODÍSTICA",
+        "TALLER DE INVESTIGACIÓN PERIODÍSTICA",
+        "PROGRAMA PARA NIÑOS"
+      ],
+      "3° AÑO": [
+        "INGLÉS III",
+        "PORTUGUÉS",
+        "INFORMÁTICA",
+        "ASUNTOS LEGALES",
+        "PRÁCTICA INTEGRAL DE RADIO III",
+        "LOCUCIÓN III",
+        "FONIATRÍA III",
+        "PRÁCTICA INTEGRAL DE TELEVISIÓN III",
+        "DOBLAJE",
+        "INTERPRETACIÓN RADIAL",
+        "MÚSICA POPULAR",
+        "MÚSICA CLÁSICA",
+        "EXAMEN DE HABILITACIÓN: LOCUTOR NACIONAL"
+      ]
+    },
+    "description": "Estudia Locutor Nacional en la UCASAL"
   },
   {
     "codcar": 142,
@@ -605,16 +649,6 @@ const datita = [
     "codare": 20,
     "porque": "<div>\n\t\t<div class=\"w-100\">\n\t\t<div class=\"row align-items-stretch justify-content-center pt-3\">\n\t\t<div class=\"col-12 col-sm-6 borde_tabla min_40 flexbox\">\n\t\t<div class=\"container\">\n\t\t<h1 class=\"plan_anio text-center\" style=\"color: #00427f;\">\n1° AÑO\n\n\t\t\t\t</h1>\n\t\t\t\t<p class=\"plan-estudio-text\">\nPSICOLOGÍA DEL DESARROLLO INFANTIL  <br>\nPRÁCTICA I: CONTEXTO, COMUNIDAD Y ESCUELA  <br>\nDIDÁCTICA DE LA EDUCACIÓN INICIAL  <br>\nJUEGOS, OBJETOS LÚDICOS Y APRENDIZAJE  <br>\nPROBLEMÁTICA DE LA EDUCACIÓN INICIAL  <br>\nHUMANISMO Y DOCTRINA DIDÁCTICA GENERAL  <br>\nSOCIOLOGÍA DE LA EDUCACIÓN  <br>\nANTROPOLOGÍA  <br>\nFILOSÓFICA  <br>\nPSICOLOGÍA EDUCACIONAL  <br>\nPEDAGOGÍA SOCIAL                          \n <br>\n\n\t\t</p>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n<div>\n\t\t<div class=\"w-100\">\n\t\t<div class=\"row align-items-stretch justify-content-center pt-3\">\n\t\t<div class=\"col-12 col-sm-6 borde_tabla min_40 flexbox\">\n\t\t<div class=\"container\">\n\t\t<h1 class=\"plan_anio text-center\" style=\"color: #00427f;\">\n2° AÑO\n\n\t\t\t\t</h1>\n\t\t\t\t<p class=\"plan-estudio-text\">\nCIENCIAS SOCIALES Y SU DIDÁCTICA  <br>\nCIENCIAS NATURALES Y SU DIDÁCTICA  <br>\nEDUCACIÓN ARTÍSTICA I (TEATRO Y EXPRESIÓN CORPORAL)  <br>\nHISTORIA Y GEOGRAFÍA ARGENTINA Y LATINOAMERICANA  <br>\nLENGUA Y LITERATURA Y SU DIDÁCTICA  <br>\nMATEMÁTICA Y SU DIDÁCTICA  <br>\nPSICOMOTRICIDAD  <br>\nEVALUACIÓN DE LOS APRENDIZAJES  <br>\nLECTURA Y ESCRITURA ACADÉMICA                    \n <br>\n\n\t\t</p>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n<div>\n\t\t<div class=\"w-100\">\n\t\t<div class=\"row align-items-stretch justify-content-center pt-3\">\n\t\t<div class=\"col-12 col-sm-6 borde_tabla min_40 flexbox\">\n\t\t<div class=\"container\">\n\t\t<h1 class=\"plan_anio text-center\" style=\"color: #00427f;\">\n3° AÑO\n\n\t\t\t\t</h1>\n\t\t\t\t<p class=\"plan-estudio-text\">\nPRÁCTICA III: COORDINACION DE GRUPOS Y ENSEÑANZA  <br>\nEDUCACIÓN ARTÍSTICA II (ARTES VISUALES Y MÚSICA)  <br>\nINGLÉS  <br>\nFILOSOFÍA DE LA EDUCACIÓN  <br>\nEDUCACIÓN TEMPRANA  <br>\nTECNOLOGÍA Y SU DIDÁCTICA  <br>\nTALLER: EL LENGUAJE Y LA RIMA  <br>\nEDUCACIÓN FÍSICA Y SU DIDÁCTICA  <br>\nALFABETIZACIÓN INICIAL  <br>\nELABORACIÓN Y EVALUACIÓN DE PROYECTOS EDUCATIVOS  <br>\nTALLER DE TÍTERES                      \n <br>\n\n\t\t</p>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n<div>\n\t\t<div class=\"w-100\">\n\t\t<div class=\"row align-items-stretch justify-content-center pt-3\">\n\t\t<div class=\"col-12 col-sm-6 borde_tabla min_40 flexbox\">\n\t\t<div class=\"container\">\n\t\t<h1 class=\"plan_anio text-center\" style=\"color: #00427f;\">\n4° AÑO\n\n\t\t\t\t</h1>\n\t\t\t\t<p class=\"plan-estudio-text\">\nTALLER DE ELABORACION DE MATERIALES DIDÁCTICOS  <br>\nMEDIACIÓN ESCOLAR Y RESOLUCIÓN DE CONFLICTOS  <br>\nPEDAGOGÍAS CONTEMPORÁNEAS  <br>\nPREVENCIÓN Y CUIDADO DE LA SALUD  <br>\nÉTICA Y DEONTOLOGÍA PROFESIONAL  <br>\nPSICOLINGUÍSTICA   <br>\nINVESTIGACIÓN EDUCATIVA  <br>\nEDUCACIÓN SEXUAL INTEGRAL                    \n <br>\n\n\t\t</p>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>",
     "description": "Estudia Profesorado Universitario en Educación Inicial en la UCASAL"
-  },
-  {
-    "codcar": 104,
-    "tipcar": "Grado",
-    "nombre": "Licenciatura en Educación Física - Ciclo de Complementación Curricular",
-    "modo": 1,
-    "duracion": "3 semestres (1 año y 1/2)",
-    "codare": 17,
-    "porque": "<div>\n\t\t<div class=\"w-100\">\n\t\t<div class=\"row align-items-stretch justify-content-center pt-3\">\n\t\t<div class=\"col-12 col-sm-6 borde_tabla min_40 flexbox\">\n\t\t<div class=\"container\">\n\t\t<h1 class=\"plan_anio text-center\" style=\"color: #00427f;\">\n1° AÑO\n\n\t\t\t\t</h1>\n\t\t\t\t<p class=\"plan-estudio-text\">\nSISTEMA EDUCATIVO     <br>\nCORRIENTES DIDÁCTICAS Y CONTEMPORÁNEAS    \n \n \n <br>\n\n\t\t</p>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n<div>\n\t\t<div class=\"w-100\">\n\t\t<div class=\"row align-items-stretch justify-content-center pt-3\">\n\t\t<div class=\"col-12 col-sm-6 borde_tabla min_40 flexbox\">\n\t\t<div class=\"container\">\n\t\t<h1 class=\"plan_anio text-center\" style=\"color: #00427f;\">\n2° AÑO\n\n\t\t\t\t</h1>\n\t\t\t\t<p class=\"plan-estudio-text\">\nDESCRIPCIÓN, ESTADÍSTICA Y METROLOGÍA DEPORTIVA    <br>\nANÁLISIS DE LA ESTRATEGIA DE LOS DEPORTES    <br>\nPLANEAMIENTO Y GESTIÓN DE POLÍTICAS EN EDUCACIÓN FÍSICA Y DEPORTE    <br>\nGIMNASIA Y DEPORTES PARA PERSONAS CON NECESIDADES ESPECIALES    <br>\nMETODOLOGÍA DE LA INVESTIGACIÓN    <br>\nTESIS    <br>\nORGANIZACIÓN, PLANIFICACIÓN Y CONTROL DEL DEPORTE Y LA ACTIVIDAD FÍSICA    <br>\nFISIOLOGÍA DE LA ACTIVIDAD FÍSICA Y ENTRENAMIENTO DEPORTIVO     \n \n \n <br>\n\n\t\t</p>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>",
-    "description": "Estudia Lic. en Educación Física  (Ciclo de Complementación Curricular) en Jujuy Presencial"
   },
   {
     "codcar": 332,

@@ -1,9 +1,9 @@
 
     // funcion asincrona anonima autoejecutable c:
     (async () => {
-        const resp1 = await fetch(
+       /*  const resp1 = await fetch(
           `./arrayCarreras.json`
-        );
+        ); */
         const data1 = await resp1.json();
         const resp2 = await fetch(
           `./carreras.json`
@@ -497,5 +497,29 @@
       });
       //var markerCluster = new MarkerClusterer(map, markers,{imagePath: '/js/mapsgoogle/m'});
     });
+}
 
+function scrollToForm() {
+  var componente = document.getElementById("pedidoinfo"); // Obtener el componente
+
+  // Calcular la posición del componente
+  var componentePosicion = componente.offsetTop;
+
+  // Hacer scroll hasta la posición del componente
+  window.scrollTo({
+    top: componentePosicion,
+    behavior: "smooth"
+  });
+
+  // Esperar un tiempo antes de aplicar el zoom
+  setTimeout(function () {
+    // Añadir la clase de efecto de zoom al componente
+    componente.classList.add("zoom-effect");
+
+    // Esperar un tiempo antes de quitar el zoom
+    setTimeout(function () {
+      // Quitar la clase de efecto de zoom
+      componente.classList.remove("zoom-effect");
+    }, 1000); // Ajusta el tiempo de espera según tus necesidades
+  }, 500); // Ajusta el tiempo de espera según tus necesidades
 }
