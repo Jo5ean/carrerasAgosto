@@ -1,0 +1,120 @@
+---
+import Container from "./Container.astro"
+---
+<Container>
+<h2 class=" bigTitle px-5 mt-5 shadow-black ">
+    <span style="color: rgb(97, 96, 96)">Modalidades:</span
+    >
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+    <!-- Columna 1 -->
+    <div class=" flex-col md:items-center md:justify-center">
+      <div class="flex items-center">
+        <img class="img-fluid w-20" src="/landing/public/iconoPresencial.svg" alt="Logo Presencial">
+        <h2 class="font-extrabold text-base md:text-lg relative  text-[#CE3F43]">
+          PRESENCIAL (P)
+        </h2>
+      </div>
+      <div class="mt-3 md:mt-0 md:text-xl">
+        <ul class="list-disc list-inside md:text-lg text-sm">
+          <li>La educación presencial tiene todos los beneficios del aprendizaje tradicional: mejora la comprensión, permite
+            el desarrollo de habilidades socioemocionales y te asegura una interacción constante en tiempo real con docentes y compañeros.</li>
+          <li>Implica un cursado en horario fijo en las instalaciones del Campus Castañares, es decir una organización clara que facilitará
+            tu desenvolvimiento en otros aspectos de tu vida personal como la práctica de la danza, los deportes o el idioma.</li>
+          <li>Potenciamos tus habilidades con clases personalizadas.</li>
+        </ul>
+      </div>        
+    </div>
+    
+    <!-- Columna 2 -->
+    <div class=" flex-col md:items-center md:justify-center">
+      <div class="flex items-center">
+        <img class="img-fluid w-20" src="/landing/public/iconoVirtual.svg" alt="Logo Digital">
+        <h2 class="font-extrabold text-base md:text-lg relative  text-[#003D7C]">
+          DIGITAL (D)
+        </h2>
+      </div>
+      <div class="mt-3 md:mt-0 text-3xl md:text-xl">
+        <ul class="list-disc list-inside md:text-lg text-sm">
+          <li>La educación digital es 100% online, adaptándose a tu realidad.</li>
+          <li>Tendrás acceso a recursos de diversos formatos en el dispositivo que prefieras, entornos
+            y sistemas de cátedras virtuales para que tu experiencia sea personalizada.</li>
+          <li>Audios, video clases, cápsulas de conocimiento, guías de aprendizaje, bibliotecas
+            virtuales, webinarios y videoconferencias son solo algunos de los recursos en formato sincrónico y asincrónico que tendrás disponible 24/7.</li>
+          <li>Disfrutá de espacios físicos en tu sede y aprendé en comunidad.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Container>
+
+<Container>
+    <div id="default-carousel" class="relative w-full" data-carousel="static">
+        <!-- Carousel wrapper -->
+        <div class="relative h-56 overflow-hidden rounded-lg md:h-96 bg-black">
+             <!-- Item 1 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="../potencia/Biblioteca.webp" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                <div
+                class="absolute inset-x-[15%] bottom-5 z-50 py-5 text-center text-white md:block">
+                <h5 class="text-xl">First slide label</h5>
+                <p>
+                  Some representative placeholder content for the first slide.
+                </p>
+              </div>
+            </div>
+    
+            <!-- Item 2 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="../potencia/Campus.webp" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                <div
+                class="absolute inset-x-[15%] bottom-5 z-50 py-5 text-center text-white md:block">
+                <h5 class="text-xl">222First slide label</h5>
+                <p>
+                  Some representative placeholder content for the first slide.
+                </p>
+              </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="../potencia/Laboratorio.webp" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                <div
+                class="absolute inset-x-[15%] bottom-5 z-50 py-5 text-center text-white md:block">
+                <h5 class="text-xl">333First slide label</h5>
+                <p>
+                  Some representative placeholder content for the first slide.
+                </p>
+              </div>
+            </div>
+        </div>
+        <!-- Slider indicators -->
+        <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+        </div>
+        <!-- Slider controls -->
+        <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                </svg>
+                <span class="sr-only">Previous</span>
+            </span>
+        </button>
+        <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                </svg>
+                <span class="sr-only">Next</span>
+            </span>
+        </button>
+    </div>
+<style>
+    .overlay .text-container {
+    z-index: 20;
+}
+
+</style>
+</Container>
