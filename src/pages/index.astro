@@ -1,23 +1,25 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
-import HeroSection from '../components/HeroSection.astro';
-import Normas from '../components/Normas.astro';
-import Form from '../components/Form.astro'
-import CarruselInfito from '../components/CarruselInfito.astro';
-import Oferta from '../components/Oferta.astro';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import HeroSection from "../components/HeroSection.astro";
+import Normas from "../components/Normas.astro";
+import Form from "../components/Form.astro";
+import CarruselInfito from "../components/CarruselInfito.astro";
+import Oferta from "../components/Oferta.jsx";
 import Potencia from "../components/Potencia.astro";
+import Container from "../components/Container.astro";
 ---
 
 <Layout title="UCASAL: ¡Inicia tu Carrera en Agosto!">
-	<Navbar />
-	<HeroSection />
-	<Form />
-	<Oferta />
-	<Potencia />
-	<Normas />
-	<CarruselInfito /> 	
-	<Footer />
+  <Navbar />
+  <HeroSection />
+  <Form />
+  <Container>
+    <Oferta client:load />
+  </Container>
+  <Potencia />
+  <CarruselInfito />
+  <Normas />
+  <Footer />
 </Layout>
-
