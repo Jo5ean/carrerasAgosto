@@ -591,16 +591,6 @@ const datita = [
     "description": "Estudia Licenciatura en trabajo social  en la UCASAL"
   },
   {
-    "codcar": 7,
-    "tipcar": "Grado",
-    "nombre": "Locutor Nacional",
-    "modo": 1,
-    "duracion": "3 años",
-    "codare": 11,
-    "porque": "<div>\n\t\t<div class=\"w-100\">\n\t\t<div class=\"row align-items-stretch justify-content-center pt-3\">\n\t\t<div class=\"col-12 col-sm-6 borde_tabla min_40 flexbox\">\n\t\t<div class=\"container\">\n\t\t<h1 class=\"plan_anio text-center\" style=\"color: #00427f;\">\n1° AÑO\n\n\t\t\t\t</h1>\n\t\t\t\t<p class=\"plan-estudio-text\">\nINGLÉS I  <br>\nCUERPO Y VOZ  <br>\nPRÁCTICA INTEGRAL DE RADIO I  <br>\nLOCUCIÓN I  <br>\nFONIATRÍA I  <br>\nPRÁCTICA INTEGRAL DE TELEVISIÓN I  <br>\nFUNDAMENTOS DE TECNOLOGÍA  <br>\nLIBRETOS Y GUIONES  <br>\nINTRODUCCIÓN A LOS MEDIOS COMUNICACIÓN SOCIAL  <br>\nPRONUNCIACIÓN DE FRANCÉS  <br>\nPRONUNCIACIÓN DE ALEMÁN            \n <br>\n\n\t\t</p>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n<div>\n\t\t<div class=\"w-100\">\n\t\t<div class=\"row align-items-stretch justify-content-center pt-3\">\n\t\t<div class=\"col-12 col-sm-6 borde_tabla min_40 flexbox\">\n\t\t<div class=\"container\">\n\t\t<h1 class=\"plan_anio text-center\" style=\"color: #00427f;\">\n2° AÑO\n\n\t\t\t\t</h1>\n\t\t\t\t<p class=\"plan-estudio-text\">\nLITERATURA  <br>\nINGLÉS II  <br>\nACTUACIÓN DRAMÁTICA  <br>\nPRINCIPIOS DE ESTÉTICA E HISTORIA DEL ARTE  <br>\nPRÁCTICA INTEGRAL DE RADIO II  <br>\nLOCUCIÓN II  <br>\nFONIATRÍA II  <br>\nPRÁCTICA INTEGRAL DE TELEVISIÓN II  <br>\nORATORIA  <br>\nPRONUNCIACIÓN DE ITALIANO  <br>\nREDACCIÓN PERIODÍSTICA  <br>\nTALLER DE INVESTIGACIÓN PERIODÍSTICA  <br>\nPROGRAMA PARA NIÑO         \n <br>\n\n\t\t</p>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n<div>\n\t\t<div class=\"w-100\">\n\t\t<div class=\"row align-items-stretch justify-content-center pt-3\">\n\t\t<div class=\"col-12 col-sm-6 borde_tabla min_40 flexbox\">\n\t\t<div class=\"container\">\n\t\t<h1 class=\"plan_anio text-center\" style=\"color: #00427f;\">\n3° AÑO\n\n\t\t\t\t</h1>\n\t\t\t\t<p class=\"plan-estudio-text\">\nINGLÉS III  <br>\nPORTUGUÉS  <br>\nINFORMÁTICA  <br>\nASUNTOS LEGALES  <br>\nPRÁCTICA INTEGRAL DE RADIO III  <br>\nLOCUCIÓN III  <br>\nFONIATRÍA III  <br>\nPRÁCTICA INTEGRAL DE TELEVISIÓN III  <br>\nDOBLAJE  <br>\nINTERPRETACIÓN RADIAL  <br>\nMÚSICA POPULAR  <br>\nMÚSICA CLÁSICA  <br>\nEXÁMEN DE HABILITACIÓN: LOCUTOR NACIONAL    \n <br>\n\n\t\t</p>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>\n\t\t</div>",
-    "description": "Estudia Locutor nacional  en la UCASAL"
-  },
-  {
     "codcar": 68,
     "tipcar": "Grado",
     "nombre": "Perito en Accidentología",

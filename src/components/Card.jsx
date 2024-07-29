@@ -1,6 +1,3 @@
-// Card.jsx
-import React from 'react';
-
 const Card = ({ codcar, codare, nombre, modo, duracion, nom }) => {
   // Verificar los props recibidos
 /*   console.log('Card props received:', { codcar, codare, nombre, modo, duracion, nom });
@@ -8,7 +5,7 @@ const Card = ({ codcar, codare, nombre, modo, duracion, nom }) => {
   const nombreClasses = nombre && nombre.split(" ").length > 4 ? 'text-xs' : 'text-md';
 
   return (
-    <div className="flex justify-center mb-5 mx-auto w-[220px] h-[250px] lg:w-[250px] lg:h-[360px]" style={{ width: '250px', height: '360px' }}>
+    <div className="flex justify-center mb-5 mx-auto w-[220px] h-[280px] lg:w-[250px] lg:h-[360px]">
       <div className="max-w-lg w-full h-full rounded-2xl overflow-hidden shadow-lg relative transition-transform hover:scale-105 hover:shadow-xl border-2">
         {/* Parte 1: Imagen */}
         <div className="relative h-32 lg:h-52">
@@ -21,13 +18,13 @@ const Card = ({ codcar, codare, nombre, modo, duracion, nom }) => {
           alt="icono carta"
         />
         {/* Parte 3: Título */}
-        <div className="px-6 pt-8 bg-white flex items-center justify-center h-16 lg:h-20">
+        <div className="px-6 pt-8 bg-white flex items-center justify-center h-20">
           <div className={`font-bold text-center mb-5 ${nombreClasses}`}>
             {nombre || ''}
           </div>
         </div>
         {/* Parte 4: Datos */}
-        <div className="px-2 lg:px-6 py-3 bg-[#ee1818] w-full h-full">
+        <div className="p-4 lg:px-6 bg-[#ee1818] w-full h-auto">
           <div className="grid grid-cols-2 gap-2 text-center">
             <div className="text-white flex flex-col col-span-1">
               <span className="rounded-full px-3 text-xs font-light">Modalidad</span>
