@@ -1,0 +1,83 @@
+---
+import { datita } from "../scripts/datita";
+import Button from "../components/Button.astro";
+import Container from "../components/Container.astro";
+import Formu from "../components/Formu.astro";
+
+export function getStaticPaths() {
+  const fran = datita.map((e) => e.codcar);
+  return fran.map((codcar) => ({ params: { codcar: codcar.toString() } }));
+}
+
+const { codcar } = Astro.params;
+
+// Buscar el objeto dentro de datita que coincide con codcar
+const carrera = datita.find((e) => e.codcar.toString() === codcar);
+
+---
+
+<div class="bg-gray-100" >
+  <!-- Header -->
+  <header class="bg-white shadow-md">    
+    <Container>
+        <div class="p-4 flex justify-between items-center">
+            <div class="flex items-center">
+              <img src="../../isologo.svg" alt="UCASAL Logo" class="mr-4 w-1/2" />
+            </div>
+            <div class="flex items-center">
+              <Button
+                label="¡Quiero inscribirme!"
+                dir="https://www.ucasal.edu.ar/inscripciones"
+              />
+            </div>
+          </div>
+    </Container>
+  </header>
+  <!-- Main Content -->
+  <Container>
+    <main class="container mx-auto p-4 mt-4 bg-white shadow-md rounded">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <img
+            src=`/agosto/${carrera? carrera.nom_landing : "general"}.jpg`
+            alt=`${carrera? carrera.nombre : "imagen-carrera"}`
+            class="w-full rounded shadow-md"
+          />
+        </div>
+        <div class="col-span-2">
+          <div class="p-4">
+            <div class="border-b-2 border-gray-300 mb-4">
+              <div class="flex justify-between items-center">
+                <h2 class="text-3xl font-bold">
+                  {carrera ? carrera.nombre : "Carrera no encontrada"}
+                </h2>
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded w-48">
+                    Duraci&oacute;n: {carrera ? carrera.duracion : "N/A"}
+                </span>
+              </div>
+              <p class="text-sm text-gray-500">
+                Aprobada por Resolución Ministerial Nº 2214/11
+              </p>
+            </div>
+            <div class="grid grid-cols-2 content-between h-full">
+              <div class="content-between h-full">
+                <h3 class="text-lg font-semibold text-red-600">
+                  Descripci&oacute;n de carrera:
+                </h3>
+                <p class="text-gray-700 mt-2 mr-3">
+                  {carrera ? carrera.description : "Carrera no encontrada"}
+                </p>
+                <div class="mt-4 flex space-x-4">
+                  <button class="bg-red-500 text-white px-4 py-2 rounded"
+                    >Plan de Estudios</button
+                  >
+                </div>
+              </div>
+              <Formu />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </Container>
+</div>
