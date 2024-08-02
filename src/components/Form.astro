@@ -1,330 +1,53 @@
 ---
 import Container from "./Container.astro";
+import Formu from "./Formu.astro";
 ---
 <Container>
   <div class="grid md:grid-cols-2 md:gap-6">
     <div
-      class="hidden md:block lg:clock xl:block [&>p]:text-gray-600 [&>p]:text-lg [&>p]:font-medium [&>p]:my-2"
+    class="hidden lg:block xl:block [&>p]:text-gray-600 [&>p]:text-lg [&>p]:font-medium [&>p]:my-2"
+  >
+    <h2 class="text-gray-600 text-3xl font-semibold my-3">
+      ¡Se parte de <span class="text-red-600">lo que se viene</span>!
+    </h2>
+    <h3 class="text-gray-600 text-xl font-medium">
+      Queremos ofrecerte mucho más que una carrera universitaria.<br />
+      <br />
+      Viví una
+      <b>experiencia educativa</b> completamente diferente, en comunidad. Dá el primer
+      paso, nosotros te acompañamos. Cursá tu año intensivo.
+    </h3>
+    <!-- https://www.youtube.com/embed/0RbmWT5TcDk?si=vL4UDbjvjAXAVLRU -->
+    <div
+      class="flex justify-center items-center shadow-2xl md:mt-5 overflow-hidden w-7/12 mx-auto"
     >
-      <h2 class="text-gray-600 text-3xl font-semibold">
-        ¡Queremos que seas parte de <span class="text-red-600"
-          >lo que sé viene</span
-        >!
-      </h2>
-      <h3 class="text-gray-600 text-xl font-medium my-5" id="messages">
-        Aprendé sin límites de edad, espacios físicos y tiempo. Disfrutá de la
-        experiencia de aprendizaje personalizado y flexible, en ambientes
-        dinámicos y colaborativos.
-      </h3>
-      <div class="text-center shadow-black md:mt-10">
-        <iframe
-          width="100%"
-          height="250"
-          src="https://www.youtube.com/embed/-nLtgFKPlXg"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          loading="lazy"></iframe>
-      </div>
-    </div>
-    <div class="flex items-center justify-end">
-      <form
-        id="pedidoinfo"
-        method="post"
-        enctype="multipart/form-data"
-        action="/postulantes_mail1.php"
-        autocomplete="on"
-        class="bg-gray-200 rounded-lg p-6 shadow-md m-5 [&>div>input]:text-blue-600 [&>div>div>input]:text-blue-600 max-w-md"
+      <video
+        autoplay
+        muted
+        loop
+        controls
+        style="width:100%;"
+        aria-label="En que consiste estudiar en nuestra universidad"
+        title="Título del video"
       >
-        <!-- input defaul -->
-        <input type="hidden" value="103" name="id_origen" id="id_origen" />
-        <input type="hidden" value="7" name="modo" />
-
-        <input type="hidden" value="postulantes" name="tabla" />
-        <input
-          name="addr"
-          type="hidden"
-          value='<?php echo $_SERVER["REMOTE_ADDR"]; ?>'
+        <source
+          src="https://www.ucasal.edu.ar/landing/public/en-que-consiste-estudiar-en-nuestra-univ.webm"
+          type="video/webm"
         />
-        <input
-          name="agent"
-          type="hidden"
-          value='<?php echo $_SERVER["HTTP_USER_AGENT"]; ?>'
+        <track
+          src="subtitles_es.vtt"
+          kind="subtitles"
+          srclang="es"
+          label="Español"
         />
-        <input
-          name="utm_source"
-          type="hidden"
-          value="<?php echo $utm_source; ?>"
-        />
-        <input
-          name="utm_medium"
-          type="hidden"
-          value="<?php echo $utm_medium; ?>"
-        />
-        <input name="utm_term" type="hidden" value="<?php echo $utm_term; ?>" />
-        <input
-          name="utm_content"
-          type="hidden"
-          value="<?php echo $utm_content; ?>"
-        />
-        <input
-          name="utm_campaign"
-          type="hidden"
-          value="<?php echo $utm_campaign; ?>"
-        />
-        <input
-          name="idconversion"
-          type="hidden"
-          value="<?php echo $idconversion; ?>"
-        />
-        <input
-          name="campaignid"
-          type="hidden"
-          value="<?php echo $campaignid; ?>"
-        />
-        <input name="referer" type="hidden" value="<?php echo $referer; ?>" />
-        <input name="gclid" type="hidden" value="<?php echo $gclid; ?>" />
-        <input
-          type="hidden"
-          name="tkp"
-          value="/landing/enviado-distancia-2021.php"
-        />
-        <input
-          type="hidden"
-          name="fkp"
-          value="/landing/enviado-distancia-2021.php?id=404"
-        />
-
-        <div class="grid md:grid-cols-2 md:gap-6">
-          <div class="relative z-0 w-full mb-1 group">
-            <input
-              type="text"
-              name="nombre"
-              id="nombre"
-              class="block mb-2 px-0 w-full text-sm text-gray-900 bg-gray-200 border-0 border-b-2 border-gray-300 appearance-none dark:text-blue-500 dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder=" "
-              required
-              tabindex="0"
-            />
-            <label
-              for="nombre"
-              class="peer-focus:font-medium absolute text-sm text-[#3C3F43] duration-300 transform -translate-y-6 scale-75 top-1 origin-[0] peer-focus:left-0 peer-focus:text-[#113DA1] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >Nombre</label
-            >
-          </div>
-          <div class="relative z-0 w-full mb-1 group">
-            <input
-              type="text"
-              name="apellido"
-              id="apellido"
-              class="block px-0 w-full text-sm text-gray-900 bg-gray-200 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder=" "
-              required
-              tabindex="1"
-            />
-            <label
-              for="apellido"
-              class="peer-focus:font-medium absolute text-sm text-[#3C3F43] duration-300 transform -translate-y-6 scale-75 top-1 origin-[0] peer-focus:left-0 peer-focus:text-[#113DA1] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >Apellido</label
-            >
-          </div>
-        </div>
-        <div class="relative z-0 w-full mb-1 group mt-2">
-          <input
-            type="email"
-            name="email"
-            id="email"
-            class="block mb-2 px-0 w-full text-sm text-gray-900 bg-gray-200 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-            tabindex="2"
-          />
-          <label
-            for="email"
-            class="peer-focus:font-medium absolute text-sm text-[#3C3F43] duration-300 transform -translate-y-6 scale-75 top-1 origin-[0] peer-focus:left-0 peer-focus:text-[#113DA1] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >Email</label
-          >
-        </div>
-        <div class="relative z-0 w-full mb-1 group mt-5">
-          <input
-            type="text"
-            name="dni"
-            id="dni"
-            class="block px-0 w-full text-sm text-gray-900 bg-gray-200 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-            tabindex="3"
-          />
-          <label
-            for="dni"
-            class="peer-focus:font-medium absolute text-sm text-[#3C3F43] duration-300 transform -translate-y-6 scale-75 top-1 origin-[0] peer-focus:left-0 peer-focus:text-[#113DA1] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >DNI para Promociones</label
-          >
-        </div>
-
-        <div class="relative z-0 w-full mb-1 group mt-3">
-          <label
-            for="cbx_carrera"
-            class="block text-sm font-medium text-[#3C3F43]"
-          >
-            Seleccione Carrera
-          </label>
-          <select
-            name="cbx_carrera"
-            id="cbx_carrera"
-            class="block w-full mt-1 px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-[#3C3F43]"
-            required
-            tabindex="4"
-            onchange="cargar_provincias()"
-          >
-            <!-- Opciones del select -->
-            <option value="" disabled selected>Seleccione Carrera</option>
-          </select>
-        </div>
-
-        <!-- <?php
-        if ($cbx_sede > 0) {
-          echo '
-              <input name="cbx_provincia" id="cbx_provincia1" type="hidden" value="' . $cbx_provincia . '">
-              <input name="cbx_sede" id="cbx_sede1" type="hidden" value="' . $cbx_sede . '">
-            ';
-        } else {
-          echo '
-          <div class="flex space-x-4">
-          <div class="relative z-0 w-full mb-1 group">
-            <label
-              for="cbx_provincia"
-              class="block text-sm font-medium text-[#3C3F43] "
-            >
-              Seleccionar Provincia
-            </label>
-            <select
-              name="cbx_provincia"
-              id="cbx_provincia"
-              class="block w-full mt-1  px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark  dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-[#3C3F43]"
-              required
-              onchange="cargar_sedes();"
-              tabindex="5"
-            >
-              <option value="" disabled selected>Seleccione Provincia</option>
-            </select>
-          </div>
-          <div class="relative z-0 w-full mb-1 group">
-            <label
-              for="cbx_sede"
-              class="block text-sm font-medium text-[#3C3F43] "
-            >
-              Seleccionar Sede
-            </label>
-            <select
-              name="cbx_sede"
-              id="cbx_sede"
-              class="block w-full mt-1  px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-[#3C3F43]"
-              required
-              tabindex="6"
-            >
-              <option value="" disabled selected>Seleccione Sede</option>
-            </select>
-          </div>
-        </div>
-            ';
-        }
-        ?> -->
-
-        <div class="flex space-x-4">
-          <div class="relative z-0 w-full group mt-6">
-            <label
-              for="telefono"
-              class="block text-sm font-medium text-[#3C3F43]"></label>
-            <select
-              name="tipo_tel"
-              id="telefono"
-              class="block w-full mt-1 px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-[#3C3F43]"
-              tabindex="7"
-              onchange="telefonoOnChange(this);"
-            >
-              <option value="cel" style="padding:0px;">Cel</option>
-              <option value="fijo" style="padding:0px;">Fijo</option>
-            </select>
-          </div>
-
-          <div class="relative z-0 w-full group" style="margin-top: 25px;">
-            <div class="relative z-0 w-full group">
-              <input
-                type="text"
-                name="cod_area"
-                id="cod"
-                size="4"
-                class="block px-0 w-full text-sm text-gray-900 bg-gray-200 border-0 border-b-2 border-gray-300 appearance-none dark:text-dark dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                placeholder=""
-                tabindex="8"
-                oninput="validarLongitudTelefono(this, 4)"
-              />
-              <label
-                for="cod"
-                class="peer-focus:font-medium absolute text-sm text-[#3C3F43] duration-300 transform -translate-y-6 scale-75 top-1 origin-[0] peer-focus:left-0 peer-focus:text-[#113DA1] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >Cod. Area</label
-              >
-            </div>
-          </div>
-
-          <div class="relative z-0 w-full group" style="margin-top: 25px;">
-            <input
-              type="text"
-              name="tel"
-              id="tel"
-              size="20"
-              class="block px-0 text-sm text-gray-900 bg-gray-200 border-0 border-b-2 border-gray-300 appearance-none dark:text-dark dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder=" "
-              required
-              tabindex="9"
-              oninput="validarLongitudTelefono(this, 13)"
-            />
-            <label
-              for="tel"
-              class="peer-focus:font-medium absolute text-sm text-[#3C3F43] duration-300 transform -translate-y-6 scale-75 top-1 origin-[0] peer-focus:left-0 peer-focus:text-[#113DA1] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >Número</label
-            >
-          </div>
-        </div>
-
-        <div
-          class="g-recaptcha mt-3"
-          tabindex="10"
-          data-callback="reCALLBACK"
-          data-sitekey="6LetQBEjAAAAAMewiwE_zXYFkT0IV-dx8_wW39ft"
-        >
-        </div>
-        <div class="flex justify-center mt-2">
-          <button
-            id="formButton"
-            type="submit"
-            class="boton-gris text-white bg-[#242F41] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 scale-105"
-            tabindex="11"
-            onclick="check()"
-            disabled
-          >
-            Enviar
-          </button>
-          <div id="spinnerContainer" class="hidden" role="status">
-            <svg
-              aria-hidden="true"
-              class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-[#B11111]"
-              viewBox="0 0 100 101"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                fill="currentColor"></path>
-              <path
-                d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                fill="currentFill"></path>
-            </svg>
-            <span class="sr-only">Loading...</span>
-          </div>
-        </div>
-      </form>
+        Tu navegador no soporta este video.
+      </video>
     </div>
   </div>
+
+  <div class="flex items-center justify-center lg:justify-end mt-5 mx-2">
+    <Formu />
+  </div>
+  </div>
 </Container>
+ 
