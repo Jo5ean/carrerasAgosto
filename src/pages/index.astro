@@ -9,16 +9,20 @@ import CarruselInfito from "../components/CarruselInfito.astro";
 import Oferta from "../components/Oferta.jsx";
 import Potencia from "../components/Potencia.astro";
 import Container from "../components/Container.astro";
+import Razones from "../components/Razones.astro";
 import Modalidades from '../components/Modalidades.astro';
+import Aranceles from "../components/Aranceles.astro";
 ---
 
 <Layout title="UCASAL: ¡Inicia tu Carrera en Agosto!">
 	<Navbar />
 	<HeroSection />
 	<Form />
-	<Oferta />
+	<Oferta client:only/>
 	<Potencia />
-	<Normas />
+	<Modalidades />
+	<Razones />
+	<Aranceles />
 	<CarruselInfito /> 	
 	<Footer />
 </Layout>
