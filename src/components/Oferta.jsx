@@ -242,7 +242,7 @@ const Oferta = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 2xl:grid-cols-4 gap-4 mt-10">
         {filteredCarreras.map((carrera) => {
-          const { codcar, nombre, codare, modo, duracion } = carrera;
+          const { codcar, nombre, codare, modo, duracion, nom_landing } = carrera;
 
           const modoStr = Array.isArray(modo)
             ? modo.join(", ")
@@ -253,10 +253,10 @@ const Oferta = () => {
               key={codcar?.toString()}
               codcar={codcar?.toString()}
               nombre={nombre || ""}
-              codare={facultyNames[codare] || ""}
+              codare={codare.toString() || ""}
               modo={modoStr}
               duracion={duracion || ""}
-              nom={nombre || ""}
+              nom={nom_landing || "general"}
             />
           );
         })}
