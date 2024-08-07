@@ -1,0 +1,39 @@
+---
+import Container from "./Container.astro"
+---
+<div id="sedes"></div>
+<Container>
+<section class="seccion">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- Fila 1, Columna 1 - Mapa de Sedes -->
+    <div class="flex flex-col justify-start">
+      <h2 class="bigTitle mb-5 shadow-black"><span style="color: rgb(97, 96, 96)">Nuestras sedes:</span></h2>
+      <iframe src="https://ucasal.edu.ar/mapa_sedes/mapa_sedes_ucasal.html" style="height: 45vh;width:100%; border: 0;" allowfullscreen></iframe>
+    </div>
+    <!-- Fila 1, Columna 2 - Recorrido 360 -->
+    <div class="flex flex-col justify-start overflow-hidden">
+      <h2 class="bigTitle mb-5 shadow-black"><span style="color: rgb(97, 96, 96)">Nuestro campus:</span></h2>
+      <iframe src="https://ucasal.edu.ar/recorrido360/" style="height: 45vh;width:100%; border: 0;" class="video shadow"></iframe>
+    </div>
+  </div>
+  <!-- Botones del Mapa -->
+  <div class="grid grid-cols-1 md:grid-cols-2 p-4 justify-between items-center gap-4">
+    <!-- Columna 1 -->
+    <div class="flex justify-center">
+      <div class="relative z-10" style="width: 300px; max-width: 350px;">
+        <a class="buttonno block text-white bg-[#B11111] border border-white rounded-full text-base font-medium py-2 px-3 text-center transition-transform transform-gpu hover:scale-105 cursor-pointer" onclick="scrollToForm('#formu')">
+          ¡Más Info! 📝
+        </a>
+      </div>
+    </div>
+    <!-- Columna 2 -->
+    <div class="flex justify-center">
+      <div class="relative z-10" style="width: 300px; max-width: 350px;">
+        <a href="https://www.ucasal.edu.ar/inscripciones/" class="buttonno block text-white bg-[#B11111] border border-white rounded-full text-base font-medium py-2 px-3 text-center transition-transform transform-gpu hover:scale-105 ">
+          ¡Quiero Inscribirme Online! 💻
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</Container>
