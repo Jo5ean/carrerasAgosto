@@ -86,6 +86,7 @@ const Oferta = () => {
 
   return (
     <div>
+      <div id="carreras"></div>
       <form className="max-w-md mx-auto mt-5 relative" onSubmit={handleSubmit}>
         <div className="relative grid grid-cols-6 w-full justify-center">
           <div className="relative w-full col-span-5">
