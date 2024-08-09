@@ -12,21 +12,21 @@ import { ViewTransitions } from 'astro:transitions';
 		<meta charset="UTF-8" />
 		<meta name="description" content="Inicia en agosto. No es tarde para tu sueño. Líderes en educación a distancia en Argentina. Programas flexibles. ¡Descubre más!" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href="/dist/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<link rel="stylesheet" href="/estilos/cIStyles.css">
-		<link rel="stylesheet" href="/estilos/tipografia.css">
 		<meta itemprop="image" content="/scrapping.jpg" />
 		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 		<script src="../scripts/scripts.js"></script>
-
+		<link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+		<script src="https://cdn.tailwindcss.com"></script>
 		<meta name="view-transition" content="same-origin">
 		<ViewTransitions />
 	</head>
 	<body>
 		<slot />
-        <script src="../../node_modules/flowbite/dist/flowbite"></script> 
+        <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
     </body>
 </html>
 <script is:inline>

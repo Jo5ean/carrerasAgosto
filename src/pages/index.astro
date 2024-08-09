@@ -10,22 +10,23 @@ import Oferta from "../components/Oferta.jsx";
 import Potencia from "../components/Potencia.astro";
 import Container from "../components/Container.astro";
 import Razones from "../components/Razones.astro";
-import Modalidades from '../components/Modalidades.astro';
+import Modalidades from "../components/Modalidades.astro";
 import Aranceles from "../components/Aranceles.astro";
 ---
 
 <Layout title="UCASAL: ¡Inicia tu Carrera en Agosto!">
-	<Navbar />
-	<HeroSection />
-	<Form />
-	<Oferta client:only="react" />
-	<Potencia />
-	<Modalidades />
-	<Razones />
-	<Aranceles />
-	<CarruselInfito /> 	
-	<Footer />
-
+  <Navbar />
+  <HeroSection />
+  <Form />
+  <Container>
+    <Oferta client:only="react" />
+  </Container>
+  <Potencia />
+  <Modalidades />
+  <Razones />
+  <Aranceles />
+  <CarruselInfito />
+  <Footer />
 </Layout>
 
 <style is:global>
@@ -33,28 +34,28 @@ import Aranceles from "../components/Aranceles.astro";
     font-family: "Museo Sans";
     font-style: normal;
     font-weight: 300;
-    src: url("/fonts/MuseoSans_300.otf") format("opentype");
+    src: url("/landing/dist/fonts/MuseoSans_300.otf") format("opentype");
   }
-  
+
   @font-face {
     font-family: "Museo Sans";
     font-style: normal;
     font-weight: 500;
-    src: url("/fonts/MuseoSans_500.otf") format("opentype");
+    src: url("/landing/dist/fonts/MuseoSans_500.otf") format("opentype");
   }
-  
+
   @font-face {
     font-family: "Museo Sans";
     font-style: normal;
     font-weight: 700;
-    src: url("/fonts/MuseoSans_700.otf") format("opentype");
+    src: url("/landing/dist/fonts/MuseoSans_700.otf") format("opentype");
   }
-  
+
   @font-face {
     font-family: "Museo Sans";
     font-style: normal;
     font-weight: 900;
-    src: url("/fonts/MuseoSans_900.otf") format("opentype");
+    src: url("/landing/dist/fonts/MuseoSans_900.otf") format("opentype");
   }
   .bigTitle {
     display: inline-block;
@@ -63,5 +64,4 @@ import Aranceles from "../components/Aranceles.astro";
     font-size: 1.5em;
     font-family: "Museo Sans";
   }
-  
 </style>

@@ -85,10 +85,10 @@ const Oferta = () => {
   };
 
   return (
-    <div>
+    <div className="w-full h-screen">
       <form className="max-w-md mx-auto mt-5 relative" onSubmit={handleSubmit}>
-        <div className="relative grid grid-cols-6 w-full justify-center">
-          <div className="relative w-full col-span-5">
+        <div className=" grid grid-cols-6 w-full justify-center">
+          <div className=" w-full col-span-5">
             <div className="absolute flex items-center pl-3 p-2 align-middle justify-center pointer-events-none">
               <svg
                 className="w-5 h-5 text-gray-500"
@@ -240,26 +240,28 @@ const Oferta = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 2xl:grid-cols-4 gap-4 mt-10">
-        {filteredCarreras.map((carrera) => {
-          const { codcar, nombre, codare, modo, duracion, nom_landing } = carrera;
+      <div className="mt-10">
+        <div className="w-full h-screen overflow-auto grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {filteredCarreras.map((carrera) => {
+            const { codcar, nombre, codare, modo, duracion, nom_landing } = carrera;
 
-          const modoStr = Array.isArray(modo)
-            ? modo.join(", ")
-            : modo?.toString() || "";
+            const modoStr = Array.isArray(modo)
+              ? modo.join(", ")
+              : modo?.toString() || "";
 
-          return (
-            <Card
-              key={codcar?.toString()}
-              codcar={codcar?.toString()}
-              nombre={nombre || ""}
-              codare={codare.toString() || ""}
-              modo={modoStr}
-              duracion={duracion || ""}
-              nom={nom_landing || "general"}
-            />
-          );
-        })}
+            return (
+              <Card
+                key={codcar?.toString()}
+                codcar={codcar?.toString()}
+                nombre={nombre || ""}
+                codare={codare.toString() || ""}
+                modo={modoStr}
+                duracion={duracion || ""}
+                nom={nom_landing || "general"}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );

@@ -3,17 +3,15 @@ import { datita } from "../scripts/datita";
 import Button from "../components/Button.astro";
 import Container from "../components/Container.astro";
 import Formu from "../components/Formu.astro";
+export const prerender = true;
 
 export function getStaticPaths() {
   const fran = datita.map((e) => e.codcar);
   return fran.map((codcar) => ({ params: { codcar: codcar.toString() } }));
 }
-
 const { codcar } = Astro.params;
-
 // Buscar el objeto dentro de datita que coincide con codcar
 const carrera = datita.find((e) => e.codcar.toString() === codcar);
-
 ---
 
 <div class="bg-gray-100" >
@@ -22,7 +20,7 @@ const carrera = datita.find((e) => e.codcar.toString() === codcar);
     <Container>
         <div class="p-4 flex justify-between items-center">
             <div class="flex items-center">
-              <img src="../../isologo.svg" alt="UCASAL Logo" class="mr-4 w-1/2" />
+              <img src="/landing/dist/isologo.svg" alt="UCASAL Logo" class="mr-4 w-1/2" />
             </div>
             <div class="flex items-center">
               <Button
