@@ -12,6 +12,7 @@ import Container from "../components/Container.astro";
 import Razones from "../components/Razones.astro";
 import Modalidades from "../components/Modalidades.astro";
 import Aranceles from "../components/Aranceles.astro";
+import Sedes from "../components/Sedes.astro";
 ---
 
 <Layout title="UCASAL: ¡Inicia tu Carrera en Agosto!">
@@ -21,10 +22,11 @@ import Aranceles from "../components/Aranceles.astro";
   <Container>
     <Oferta client:only="react" />
   </Container>
-  <Potencia />
   <Modalidades />
+  <Potencia />
   <Razones />
   <Aranceles />
+  <Sedes />
   <CarruselInfito />
   <Footer />
 </Layout>
