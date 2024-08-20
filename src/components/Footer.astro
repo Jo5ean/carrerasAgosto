@@ -1,30 +1,30 @@
 ---
 import Logo from "./Logo.astro"
 ---
-
-<footer class="bg-[#ee1818]">
+<footer class="bg-[#B11111] rounded-b-lg">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-2 lg:py-4">
-        <div class="md:flex md:justify-between">
-            <div class="mb-6 md:mb-0">
-                <a href="#" class="flex items-center">
-                    <Logo isoColor="/dist/isologoBlanco.svg"/>
-                </a>
-            </div>
+      <div class="relative">
+        <div class="flex md:absolute md:-bottom-[45px] md:right-0 mb-6 md:mb-0">
+          <a href="#" class="flex items-center">
+            <!-- Aquí pasamos el prop isoColor como true para que el logo sea blanco -->
+            <Logo isoColor={false} />
+          </a>
         </div>
-        <a href="https://www.ucasal.edu.ar" class="text-white text-xs">
-            <i class="fas fa-home"></i> www.ucasal.edu.ar
-        </a>
-        <p class="text-white text-xs">
-            <i class="fas fa-phone"></i> 54 0387 4268800 / 0810-555-(822725)
-        </p>
-        <p class="text-white text-xs">
-            <i class="fas fa-envelope"></i> admision@ucasal.edu.ar
-        </p>
-        <hr class="my-2 border-gray-200 sm:mx-auto dark:border-white-700 lg:my-4" />
-        <div class="flex justify-center align-middle">
-            <span class="text-xs text-white dark:text-white">
-                &copy; 2024 <a href="https://ucasal.edu.ar/" class="hover:underline">UCASAL</a>. Construi tu historia.
-            </span>
-        </div>
+      </div>
+      <a href="https://www.ucasal.edu.ar" class="text-white text-xs">
+        <i class="fas fa-home"></i> www.ucasal.edu.ar
+      </a>
+      <p class="text-white text-xs">
+        <i class="fas fa-phone"></i> 54 0387 4268800 / 0810-555-(822725)
+      </p>
+      <p class="text-white text-xs">
+        <i class="fas fa-envelope"></i> admision@ucasal.edu.ar
+      </p>
+      <hr class="my-2 border-gray-200 sm:mx-auto dark:border-white-700 lg:my-4" />
+      <div class="flex justify-center align-middle">
+        <span class="text-xs text-white dark:text-white">
+          &copy; 2024 <a href="https://www.ucasal.edu.ar/" class="hover:underline">UCASAL</a>. Construi tu historia.
+        </span>
+      </div>
     </div>
-</footer>
+  </footer>

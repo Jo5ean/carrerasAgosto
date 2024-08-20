@@ -139,6 +139,7 @@
 
 
   function cambiar_modo() {
+    console.log("Cambiando modo");
     var modo = $("#modo").val()
 
     $("#cbx_provincia").empty();

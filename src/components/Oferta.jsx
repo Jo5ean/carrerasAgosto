@@ -241,7 +241,7 @@ const Oferta = () => {
         </div>
       </div>
 
-      <div className="mt-10">
+      <div className="">
         <div className="w-full h-screen overflow-auto grid grid-cols-2 lg:grid-cols-4 gap-4">
           {filteredCarreras.map((carrera) => {
             const { codcar, nombre, codare, modo, duracion, nom_landing } = carrera;
