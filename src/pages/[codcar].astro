@@ -1,6 +1,7 @@
 ---
 import { datita } from "../scripts/datita";
 import Button from "../components/Button.astro";
+import Footer from "../components/Footer.astro";
 import Container from "../components/Container.astro";
 import Formu from "../components/Formu.astro";
 export const prerender = true;
@@ -219,7 +220,7 @@ function getModeText(modoArray) {
                   {carrera ? carrera.description : "Carrera no encontrada"}
                 </p>
                 <div class="flex justify-center">
-              <Formu />
+                  <Formu codcar={carrera.codcar.toString()} />
             </div>
             </div>
           </div>
@@ -228,3 +229,4 @@ function getModeText(modoArray) {
     </main>
   </Container>
 </div>
+<Footer />

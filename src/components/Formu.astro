@@ -1,295 +1,360 @@
-<form
-    role="form" id="pedidoinfo" 
-    method="post" enctype="multipart/form-data" 
-    action="/postulantes_mail1.php" 
-    autocomplete="on"
-    class="bg-gray-200 rounded-lg p-6 shadow-md [&>div>input]:text-blue-600 [&>div>div>input]:text-blue-600 max-w-md"
->
-    <input type="hidden" value="4" name="id_origen" id="id_origen" />
-    <!-- <input type="hidden" value=" " name="apellido" id="apellido" /> -->
-    <input type="hidden" value="postulantes" name="tabla" />
-    <input type="hidden" id="addr" name="addr" />
-    <input type="hidden" id="agent" name="agent" />
-    <input type="hidden" name="utm_source" id="utm_source" />
-    <input type="hidden" name="utm_medium" id="utm_medium" />
-    <input type="hidden" name="utm_term" id="utm_term" />
-    <input type="hidden" name="utm_content" id="utm_content" />
-    <input type="hidden" name="utm_campaign" id="utm_campaign" />
-    <input type="hidden" name="idconversion" id="idconversion" />
-    <input type="hidden" name="campaignid" id="campaignid" />
-    <input type="hidden" name="referer" id="referer" />
-    <input name="gclid" type="hidden" id="gclid" />
-    <input type="hidden" name="tkp" value="/ingreso-carreras-ucasal/enviado-distancia-2021.php">
-    <input type="hidden" name="fkp" value="/ingreso-carreras-ucasal/enviado-distancia-2021.php?id=404">
+---
+export interface Props {
+  codcar?: string; 
+}
 
-    <div class="grid md:grid-cols-2 md:gap-6">
-        <div class="relative z-0 w-full mb-1 group">
-          <input
-            type="text"
-            name="nombre"
-            id="nombre"
-            class="block mb-2 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-blue-500 dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-            tabindex="1"
-          />
-          <label
-            for="floating_first_name"
-            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >Nombre</label>
-        </div>
-        <div class="relative z-0 w-full mb-1 group">
-          <input
-            type="text"
-            name="apellido"
-            id="apellido"
-            class="block  px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-            tabindex="2"
-          />
-          <label
-            for="floating_last_name"
-            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >Apellido</label>
-        </div>
-    </div>
-    <div class="relative z-0 w-full mb-1 group mt-2">
-        <input
-          type="email"
-          name="email"
-          id="email"
-          class="block mb-2 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-          placeholder=" "
-          required
-          tabindex="3"
-        />
-        <label
-          for="floating_email"
-          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >Email</label>
-    </div>
-    <div class="relative z-0 w-full mb-1 group mt-5">
-        <input
-          type="text"
-          name="dni"
-          id="dni"
-          class="block px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-          placeholder=" "
-          required
-          tabindex="4"
-        />
-        <label
-          for="floating_email"
-          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >DNI para Promociones</label>
-    </div>
-    <div class="relative z-0 w-full mb-1 mt-3 group">
-        <label
-          for="carrera"
-          class="block text-sm font-medium text-gray-500 dark:text-gray-400"
-        >
-        Seleccionar Modalidad
-        </label>
-        <select
-          name="modo"
-          id="modo"
-          class="block w-full mt-1  px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
-          required
-          onchange="cambiarModo();"
-          tabindex="5"
-        >
-          <!-- Opciones del select -->
-          <option value="" disabled selected>Seleccionar Modalidad</option>
-          <option value="1">Presencial</option>
-          <option value="7">Digital</option>
-        </select>
-    </div>
-    <div class="flex space-x-4">
-        <div class="relative z-0 w-full mb-1 group">
-          <label
-            for="carrera"
-            class="block text-sm font-medium text-gray-500 dark:text-gray-400"
-          >
-            Seleccionar Provincia
-          </label>
-          <select
-            name="cbx_provincia"
-            id="cbx_provincia"
-            class="block w-full mt-1  px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark  dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
-            required
-            onchange="cambiarProvincia();"
-            tabindex="6"
-            disabled
-          >
-            <!-- Opciones del select -->
-            <option value="" disabled selected>Seleccionar Provincia</option>
-          </select>
-        </div>
-        <div class="relative z-0 w-full mb-1 group">
-          <label
-            for="carrera"
-            class="block text-sm font-medium text-gray-500 dark:text-gray-400"
-          >
-            Seleccionar Sede
-          </label>
-          <select
-            name="cbx_sede"
-            id="cbx_sede"
-            class="block w-full mt-1  px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
-            required
-            onchange="cambiarSede();"
-            tabindex="7"
-            disabled
-          >
-            <!-- Opciones del select -->
-            <option value="" disabled selected>Seleccionar Sede</option>
-          </select>
-        </div>
+const { codcar } = Astro.props;
+---
+
+<form
+  role="form"
+  id="pedidoinfo"
+  method="post"
+  enctype="multipart/form-data"
+  action="/postulantes_mail1.php"
+  autocomplete="on"
+  class="bg-gray-200 rounded-lg p-6 shadow-md [&>div>input]:text-blue-600 [&>div>div>input]:text-blue-600 max-w-md"
+>
+  <!-- Campo oculto para pasar el valor de codcar -->
+  <input type="hidden" id="hiddenCodcar" value={codcar} />
+  <input type="hidden" value="4" name="id_origen" id="id_origen" />
+  <!-- <input type="hidden" value=" " name="apellido" id="apellido" /> -->
+  <input type="hidden" value="postulantes" name="tabla" />
+  <input type="hidden" id="addr" name="addr" />
+  <input type="hidden" id="agent" name="agent" />
+  <input type="hidden" name="utm_source" id="utm_source" />
+  <input type="hidden" name="utm_medium" id="utm_medium" />
+  <input type="hidden" name="utm_term" id="utm_term" />
+  <input type="hidden" name="utm_content" id="utm_content" />
+  <input type="hidden" name="utm_campaign" id="utm_campaign" />
+  <input type="hidden" name="idconversion" id="idconversion" />
+  <input type="hidden" name="campaignid" id="campaignid" />
+  <input type="hidden" name="referer" id="referer" />
+  <input name="gclid" type="hidden" id="gclid" />
+  <input
+    type="hidden"
+    name="tkp"
+    value="/ingreso-carreras-ucasal/enviado-distancia-2021.php"
+  />
+  <input
+    type="hidden"
+    name="fkp"
+    value="/ingreso-carreras-ucasal/enviado-distancia-2021.php?id=404"
+  />
+
+  <div class="grid md:grid-cols-2 md:gap-6">
+    <div class="relative z-0 w-full mb-1 group">
+      <input
+        type="text"
+        name="nombre"
+        id="nombre"
+        class="block mb-2 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-blue-500 dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+        tabindex="1"
+      />
+      <label
+        for="floating_first_name"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >Nombre</label
+      >
     </div>
     <div class="relative z-0 w-full mb-1 group">
-        <label
-          for="carrera"
-          class="block text-sm font-medium text-gray-500 dark:text-gray-400"
-        >
+      <input
+        type="text"
+        name="apellido"
+        id="apellido"
+        class="block px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+        tabindex="2"
+      />
+      <label
+        for="floating_last_name"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >Apellido</label
+      >
+    </div>
+  </div>
+  <div class="relative z-0 w-full mb-1 group mt-2">
+    <input
+      type="email"
+      name="email"
+      id="email"
+      class="block mb-2 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+      placeholder=" "
+      required
+      tabindex="3"
+    />
+    <label
+      for="floating_email"
+      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >Email</label
+    >
+  </div>
+  <div class="relative z-0 w-full mb-1 group mt-5">
+    <input
+      type="text"
+      name="dni"
+      id="dni"
+      class="block px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+      placeholder=" "
+      required
+      tabindex="4"
+    />
+    <label
+      for="floating_email"
+      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >DNI para Promociones</label
+    >
+  </div>
+  <div class="relative z-0 w-full mb-1 mt-3 group">
+    <label
+      for="carrera"
+      class="block text-sm font-medium text-gray-500 dark:text-gray-400"
+    >
+      Seleccionar Modalidad
+    </label>
+    <select
+      name="modo"
+      id="modo"
+      class="block w-full mt-1 px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
+      required
+      onchange="cambiarModo();"
+      tabindex="5"
+    >
+      <!-- Opciones del select -->
+      <option value="" disabled selected>Seleccionar Modalidad</option>
+      <option value="1">Presencial</option>
+      <option value="7">Digital</option>
+    </select>
+  </div>
+  <div class="flex space-x-4">
+    <div class="relative z-0 w-full mb-1 group">
+      <label
+        for="carrera"
+        class="block text-sm font-medium text-gray-500 dark:text-gray-400"
+      >
+        Seleccionar Provincia
+      </label>
+      <select
+        name="cbx_provincia"
+        id="cbx_provincia"
+        class="block w-full mt-1 px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
+        required
+        onchange="cambiarProvincia();"
+        tabindex="6"
+        disabled
+      >
+        <!-- Opciones del select -->
+        <option value="" disabled selected>Seleccionar Provincia</option>
+      </select>
+    </div>
+    <div class="relative z-0 w-full mb-1 group">
+      <label
+        for="carrera"
+        class="block text-sm font-medium text-gray-500 dark:text-gray-400"
+      >
+        Seleccionar Sede
+      </label>
+      <select
+        name="cbx_sede"
+        id="cbx_sede"
+        class="block w-full mt-1 px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
+        required
+        onchange="cambiarSede();"
+        tabindex="7"
+        disabled
+      >
+        <!-- Opciones del select -->
+        <option value="" disabled selected>Seleccionar Sede</option>
+      </select>
+    </div>
+  </div>
+  {codcar ? (
+    <input type="hidden" name="cbx_carrera" value={codcar} />
+  ) : (
+    <div class="relative z-0 w-full mb-1 group">
+      <label
+        for="carrera"
+        class="block text-sm font-medium text-gray-500 dark:text-gray-400"
+      >
         Seleccionar Carrera
-        </label>
-        <select
-          name="cbx_carrera"
-          id="cbx_carrera"
-          class="block w-full mt-1  px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark  dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
-          required
-          tabindex="8"
-          disabled
+      </label>
+      <select
+        name="cbx_carrera"
+        id="cbx_carrera"
+        class="block w-full mt-1 px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
+        required
+        tabindex="8"
+        disabled
+      >
+        <!-- Opciones del select -->
+        <option value="" disabled selected>Seleccionar Carrera</option>
+      </select>
+    </div>
+  )}
+  <div class="flex space-x-4">
+    <div class="relative z-0 w-full group mt-6">
+      <label
+        for="tel"
+        class="block text-sm font-medium text-gray-500 dark:text-gray-400"
+      ></label>
+      <select
+        name="tipo_tel"
+        id=""
+        class="block w-full mt-1 px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
+        tabindex="9"
+        onchange="telefonoOnChange(this);"
+      >
+        <option value="cel" style="padding:0px;">Cel</option>
+        <option value="fijo" style="padding:0px;">Fijo</option>
+      </select>
+    </div>
+    <div class="relative z-0 w-full group" style="margin-top: 25px;">
+      <div class="relative z-0 w-full group">
+        <input
+          type="text"
+          name="cod_area"
+          id="cod"
+          size="4"
+          class="block px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-dark dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder=""
+          tabindex="10"
+          oninput="validarLongitudTelefono(this, 4)"
+        />
+        <label
+          for="cod"
+          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >Cod. Area</label
         >
-          <!-- Opciones del select -->
-          <option value="" disabled selected>Seleccionar Carrera</option>
-        </select>
+      </div>
     </div>
-    <div class="flex space-x-4">
-        <div class="relative z-0 w-full group mt-6">
-            <label for="tel" class="block text-sm font-medium text-gray-500 dark:text-gray-400"></label>
-            <select
-              name="tipo_tel"
-              id=""
-              class="block w-full mt-1 px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
-              tabindex="9"
-              onchange="telefonoOnChange(this);"
-            >
-              <option value="cel" style="padding:0px;">Cel</option>
-              <option value="fijo" style="padding:0px;">Fijo</option>
-            </select>
-        </div>
-        <div class="relative z-0 w-full group" style="margin-top: 25px;">
-            <div class="relative z-0 w-full group">
-                <input
-                  type="text"
-                  name="cod_area"
-                  id="cod"
-                  size="4"
-                  class="block px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-dark dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=""
-                  tabindex="10"
-                  oninput="validarLongitudTelefono(this, 4)"
-                />
-                <label
-                  for="cod"
-                  class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >Cod. Area</label>
-            </div>
-        </div>
-        <div class="relative z-0 w-full group" style="margin-top: 25px;">
-            <input
-              type="text"
-              name="tel"
-              id="tel"
-              size="20"
-              class="block px-0 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-dark dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder=" "
-              required
-              tabindex="11"
-              oninput="validarLongitudTelefono(this, 13)"
-            />
-            <label
-              for="tel"
-              class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >Número</label>
-        </div>
+    <div class="relative z-0 w-full group" style="margin-top: 25px;">
+      <input
+        type="text"
+        name="tel"
+        id="tel"
+        size="20"
+        class="block px-0 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-dark dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+        required
+        tabindex="11"
+        oninput="validarLongitudTelefono(this, 13)"
+      />
+      <label
+        for="tel"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >Número</label
+      >
     </div>
-    <div class="g-recaptcha mt-3" tabindex="12" data-callback="reCALLBACK" data-sitekey="6LetQBEjAAAAAMewiwE_zXYFkT0IV-dx8_wW39ft"></div>
-    <div class="flex justify-center mt-2">
-        <button
-            id="formButton"
-            type="submit"
-            class="boton-gris text-white bg-[#242F41] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 scale-105"
-            tabindex="13"
-            onclick="check()"
-            disabled
-        >
-        Enviar
-        </button>
-    </div>
+  </div>
+  <div
+    class="g-recaptcha mt-3"
+    tabindex="12"
+    data-callback="reCALLBACK"
+    data-sitekey="6LetQBEjAAAAAMewiwE_zXYFkT0IV-dx8_wW39ft"
+  >
+  </div>
+  <div class="flex justify-center mt-2">
+    <button
+      id="formButton"
+      type="submit"
+      class="boton-gris text-white bg-[#242F41] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 scale-105"
+      tabindex="13"
+      onclick="check()"
+      disabled
+    >
+      Enviar
+    </button>
+  </div>
 </form>
 
 <script is:inline>
   // ###### CAMBIAR EL MODO DEL SELECT FILTRA LA OFERTA ######
-  function cambiarModo() {
-    var modo = document.getElementById("modo").value;
+  function cambiarModo(codcar = null) {
+    var modoSelect = document.getElementById("modo");
 
-    // Obtén el elemento del botón
-    let element = document.getElementById('cbx_provincia');
-    // Quita el atributo "disabled"
-    element.removeAttribute("disabled");
-
-    // Vacía los selects
-    document.getElementById("cbx_provincia").innerHTML = '<option value="" selected>Seleccionar Provincia</option>';
-    document.getElementById("cbx_sede").innerHTML = '<option value="" selected>Seleccionar Sede</option>';
-    document.getElementById("cbx_carrera").innerHTML = '<option value="" selected>Seleccionar Carrera</option>';
-
-    var carrerasArray = JSON.parse(window.localStorage.getItem("CarrerasModGeneral"));
-    let carrerasMod = carrerasArray.filter(carreras => carreras.modo == modo);
-
-    const carrerasExcluidasModo1 = ["250"];
-    if (modo === "1") {
-        carrerasMod = carrerasMod.filter(carrera => !carrerasExcluidasModo1.includes(carrera.codcar));
+    // Verificar si el select de modo existe y tiene un valor seleccionado
+    if (!modoSelect || !modoSelect.value) {
+        console.error("El elemento modo no existe o no tiene un valor seleccionado");
+        return; // Salir de la función si no hay un modo seleccionado
     }
-    console.log("carrerasMod: ", carrerasMod);
-    window.localStorage.setItem("carrerasMod", JSON.stringify(carrerasMod));
 
-    if (carrerasMod) {
-        // Listado de id provincias para poner solo una en el combo
-        var list_prov_id = [];
-        var listaProvincia = [];
+    var modo = modoSelect.value;
 
-        // Ciclo por todas las carreras
-        carrerasMod.forEach(function(valorCarrera) {
-            var provincias = valorCarrera.provincias;
-            // Saco las provincias sin duplicados
-            provincias.forEach(function(valor) {
-                if (!list_prov_id.includes(valor.id_provincia)) {
-                    list_prov_id.push(valor.id_provincia); // Agrego al listado para no tomar repetidos
-                    listaProvincia.push(valor); // Guardo el objeto provincias para ordenarlo
-                }
+    // Continuar solo si el select de modo tiene un valor válido
+    if (modo) {
+        // Habilitar el select de provincia
+        var provinciaSelect = document.getElementById("cbx_provincia");
+        if (provinciaSelect) {
+            provinciaSelect.removeAttribute("disabled");
+            provinciaSelect.innerHTML = '<option value="" selected>Seleccionar Provincia</option>';
+        } else {
+            console.error("El select de provincia no se encontró en el DOM");
+            return;
+        }
+
+        // Restablecer los selects de sede y carrera
+        var sedeSelect = document.getElementById("cbx_sede");
+        var carreraSelect = document.getElementById("cbx_carrera");
+
+        if (sedeSelect) {
+            sedeSelect.innerHTML = '<option value="" selected>Seleccionar Sede</option>';
+        } else {
+            console.error("El select de sede no se encontró en el DOM");
+            return;
+        }
+
+        if (carreraSelect) {
+            carreraSelect.innerHTML = '<option value="" selected>Seleccionar Carrera</option>';
+        } else {
+            console.error("El select de carrera no se encontró en el DOM");
+            return;
+        }
+
+        // Obtener las carreras del localStorage
+        var carrerasMod = JSON.parse(window.localStorage.getItem("carrerasMod"));
+
+        // Si se proporciona codcar, filtrar carreras específicas
+        if (codcar) {
+            carrerasMod = carrerasMod.filter(carrera => carrera.codcar === codcar);
+        }
+
+        if (carrerasMod) {
+            var provinciasDisponibles = [];
+            carrerasMod.forEach(function (valorCarrera) {
+                valorCarrera.provincias.forEach(function (provincia) {
+                    if (!provinciasDisponibles.some(p => p.id_provincia === provincia.id_provincia)) {
+                        provinciasDisponibles.push(provincia);
+                    }
+                });
             });
-        });
 
-        // Ordeno alfabéticamente las provincias
-        listaProvincia.sort((a, b) => a.nombre_provincia.localeCompare(b.nombre_provincia));
+            // Ordenar alfabéticamente las provincias
+            provinciasDisponibles.sort((a, b) =>
+                a.nombre_provincia.localeCompare(b.nombre_provincia)
+            );
 
-        // Agrego las provincias al select
-        listaProvincia.forEach(function(valor) {
-            var option = document.createElement("option");
-            option.value = valor.id_provincia;
-            option.text = valor.nombre_provincia;
-            document.getElementById("cbx_provincia").appendChild(option);
-        });
+            // Agregar las provincias al select
+            provinciasDisponibles.forEach(function (provincia) {
+                var option = document.createElement("option");
+                option.value = provincia.id_provincia;
+                option.text = provincia.nombre_provincia;
+                provinciaSelect.appendChild(option);
+            });
 
-        if (listaProvincia.length == 1) {
-            document.getElementById("cbx_provincia").value = document.getElementById("cbx_provincia").options[1].value;
-            cambiarProvincia(); // Llama a la función cambiarProvincia para seguir el flujo
+            // Si solo hay una provincia, seleccionarla automáticamente y continuar el flujo
+            if (provinciasDisponibles.length === 1) {
+                provinciaSelect.value = provinciasDisponibles[0].id_provincia;
+                cambiarProvincia(); // Llamar a la función para cargar las sedes
+            }
+        } else {
+            console.error("No se encontraron carreras en el almacenamiento local");
         }
     }
 }
+
 
   // ###### SELECCIONADA LA CARRERA CARGA LAS PROVINCIAS DONDE SE OFRECE ######
   function cambiarProvincia() {
@@ -297,48 +362,54 @@
     var modo = document.getElementById("modo").value;
 
     // Vaciar los selects de sede y carrera
-    document.getElementById("cbx_sede").innerHTML = '<option value="" selected>Seleccionar Sede</option>';
-    document.getElementById("cbx_carrera").innerHTML = '<option value="" selected>Seleccionar Carrera</option>';
+    document.getElementById("cbx_sede").innerHTML =
+      '<option value="" selected>Seleccionar Sede</option>';
+    document.getElementById("cbx_carrera").innerHTML =
+      '<option value="" selected>Seleccionar Carrera</option>';
 
     // Habilitar el select de sede
-    let element = document.getElementById('cbx_sede');
+    let element = document.getElementById("cbx_sede");
     element.removeAttribute("disabled");
 
     var carrerasMod = JSON.parse(window.localStorage.getItem("carrerasMod"));
     console.log("carrerasArray: ", carrerasMod);
 
     if (carrerasMod) {
-        var list_sedes_id = [];
-        var listaProvincia = [];
+      var list_sedes_id = [];
+      var listaProvincia = [];
 
-        // Recorrer todas las carreras y filtrar por provincia
-        carrerasMod.forEach(function(valorCarrera) {
-            var provincias = valorCarrera.provincias;
-            provincias.forEach(function(valor) {
-                if (!list_sedes_id.includes(valor.id_sede) && valor.id_provincia == provincia) {
-                    list_sedes_id.push(valor.id_sede); // Agregar al listado para no tomar repetidos
-                    listaProvincia.push(valor); // Guardar el objeto provincias para ordenarlo
-                }
-            });
+      // Recorrer todas las carreras y filtrar por provincia
+      carrerasMod.forEach(function (valorCarrera) {
+        var provincias = valorCarrera.provincias;
+        provincias.forEach(function (valor) {
+          if (
+            !list_sedes_id.includes(valor.id_sede) &&
+            valor.id_provincia == provincia
+          ) {
+            list_sedes_id.push(valor.id_sede); // Agregar al listado para no tomar repetidos
+            listaProvincia.push(valor); // Guardar el objeto provincias para ordenarlo
+          }
         });
+      });
 
-        // Ordenar alfabéticamente las sedes
-        listaProvincia.sort((a, b) => a.nombre_sede.localeCompare(b.nombre_sede));
+      // Ordenar alfabéticamente las sedes
+      listaProvincia.sort((a, b) => a.nombre_sede.localeCompare(b.nombre_sede));
 
-        // Agregar las sedes al select
-        listaProvincia.forEach(function(valor) {
-            var option = document.createElement("option");
-            option.value = valor.id_sede;
-            option.text = valor.nombre_sede;
-            document.getElementById("cbx_sede").appendChild(option);
-        });
+      // Agregar las sedes al select
+      listaProvincia.forEach(function (valor) {
+        var option = document.createElement("option");
+        option.value = valor.id_sede;
+        option.text = valor.nombre_sede;
+        document.getElementById("cbx_sede").appendChild(option);
+      });
 
-        if (listaProvincia.length == 1) {
-            document.getElementById("cbx_sede").value = document.getElementById("cbx_sede").options[1].value;
-            cambiarSede(); // Llama a la función cambiarSede para seguir el flujo
-        }
+      if (listaProvincia.length == 1) {
+        document.getElementById("cbx_sede").value =
+          document.getElementById("cbx_sede").options[1].value;
+        cambiarSede(); // Llama a la función cambiarSede para seguir el flujo
+      }
     }
-}
+  }
 
   // ###### SELECCIONADA LA PROVINCIA CARGA LA SEDE ######
   function cambiarSede() {
@@ -347,31 +418,33 @@
     var sede = document.getElementById("cbx_sede").value;
 
     // Vaciar el select de carrera
-    document.getElementById("cbx_carrera").innerHTML = '<option value="" selected>Seleccionar Carrera</option>';
+    document.getElementById("cbx_carrera").innerHTML =
+      '<option value="" selected>Seleccionar Carrera</option>';
 
     // Habilitar el select de carrera
-    let element = document.getElementById('cbx_carrera');
+    let element = document.getElementById("cbx_carrera");
     element.removeAttribute("disabled");
 
     var carrerasMod = JSON.parse(window.localStorage.getItem("carrerasMod"));
 
     if (carrerasMod) {
-        const carrerasSedes = carrerasMod.filter(carreras => 
-            carreras.provincias.some(provincia => provincia.id_sede == sede)
-        );
+      const carrerasSedes = carrerasMod.filter((carreras) =>
+        carreras.provincias.some((provincia) => provincia.id_sede == sede)
+      );
 
-        carrerasSedes.forEach(function(valor) {
-            var option = document.createElement("option");
-            option.value = valor.codcar;
-            option.text = valor.nombre_carrera;
-            document.getElementById("cbx_carrera").appendChild(option);
-        });
+      carrerasSedes.forEach(function (valor) {
+        var option = document.createElement("option");
+        option.value = valor.codcar;
+        option.text = valor.nombre_carrera;
+        document.getElementById("cbx_carrera").appendChild(option);
+      });
 
-        if (carrerasSedes.length == 1) {
-            document.getElementById("cbx_carrera").value = document.getElementById("cbx_carrera").options[1].value;
-        }
+      if (carrerasSedes.length == 1) {
+        document.getElementById("cbx_carrera").value =
+          document.getElementById("cbx_carrera").options[1].value;
+      }
     }
-}
+  }
 
   // ###### FUNCION PARA VALIDAR (CORREGIR) ######
   function check() {
@@ -379,11 +452,13 @@
     var codAreaLength = document.getElementsByName("cod_area")[0].value.length;
 
     if (telLength + codAreaLength > 1 && telLength + codAreaLength < 10) {
-        document.getElementsByName("tel")[0].setCustomValidity("Escribe Telefono y Codigo de Area");
+      document
+        .getElementsByName("tel")[0]
+        .setCustomValidity("Escribe Telefono y Codigo de Area");
     } else {
-        document.getElementsByName("tel")[0].setCustomValidity("");
+      document.getElementsByName("tel")[0].setCustomValidity("");
     }
-}
+  }
 
   // ###### FUNCION PARA VALIDAR LONGITUD Y CARACTERISTICAS DE TELEFONO ######
   function validarLongitudTelefono(inputTelefono, longitudMaxima) {
@@ -391,20 +466,20 @@
     var telefono = inputTelefono.value;
 
     // Limpiar el número de teléfono de cualquier carácter que no sea un dígito
-    var telefonoLimpio = telefono.replace(/\D/g, '');
+    var telefonoLimpio = telefono.replace(/\D/g, "");
 
     // Limitar la longitud del número de teléfono a la longitud máxima especificada
     if (telefonoLimpio.length > longitudMaxima) {
-        // Si se excede la longitud, cortar el número
-        telefonoLimpio = telefonoLimpio.slice(0, longitudMaxima);
+      // Si se excede la longitud, cortar el número
+      telefonoLimpio = telefonoLimpio.slice(0, longitudMaxima);
     }
 
     // Asignar el valor limpio de nuevo al campo de teléfono
     inputTelefono.value = telefonoLimpio;
-}
+  }
 
   // ###### FUNCION PARA CAMBIAR EL TIPO DE TELEFONO Y APLICA ESTILOS EN FUNCION DEL VALOR ######
- /*  function telefonoOnChange(sel) {
+  /*  function telefonoOnChange(sel) {
       if (sel.value=="cel"){
            divC = document.getElementById("telefono_cel");
            divC.style.display = "";
@@ -418,16 +493,57 @@
       }
 } */
 
-/* FUNCION PARA COMPLETAR OFERTA EN FUNCION DE LA CARRERA ENVIADA POR ASTROPROPS */
-function completarOferta(carrera) {
-    var carrerasArray = JSON.parse(window.localStorage.getItem("CarrerasModGeneral"));
-    var carrera = carrerasArray.find(carreras => carreras.codcar == carrera);
-    console.log("carrera: ", carrera);
+  /* FUNCION PARA COMPLETAR OFERTA EN FUNCION DE LA CARRERA ENVIADA POR ASTROPROPS */
+  document.addEventListener("DOMContentLoaded", function() {
+    var codcar = document.getElementById("hiddenCodcar").value;  // Obtener el valor de codcar (ES STRING!!!)
+    console.log("codcar: ", codcar);
+    if (codcar) {
+        completarOferta(codcar);  // Llamar a la función usando codcar
+    }
+});
 
-    document.getElementById("cbx_provincia").value = carrera.provincias[0].id_provincia;
-    cambiarProvincia();
-    document.getElementById("cbx_sede").value = carrera.provincias[0].id_sede;
-    cambiarSede();
-    document.getElementById("cbx_carrera").value = carrera.codcar;
+function completarOferta(codcar) {
+    var carrerasArray = JSON.parse(window.localStorage.getItem("CarrerasModGeneral"));
+    console.log("carrerasArray: ", carrerasArray);
+    
+    // Filtrar las carreras que tienen el codcar deseado
+    var carrerasSeleccionadas = carrerasArray.filter(carrera => carrera.codcar === codcar);
+    console.log("carrerasSeleccionadas: ", carrerasSeleccionadas);
+
+    if (carrerasSeleccionadas.length > 0) {
+        var modosDisponibles = [];
+        var provinciasDisponibles = [];
+        var sedesDisponibles = [];
+
+        // Recorrer cada modalidad de la carrera seleccionada
+        carrerasSeleccionadas.forEach(function(carrera) {
+            modosDisponibles.push(carrera.modo);
+            carrera.provincias.forEach(function(provincia) {
+                if (!provinciasDisponibles.some(p => p.id_provincia === provincia.id_provincia)) {
+                    provinciasDisponibles.push(provincia);
+                }
+                if (!sedesDisponibles.some(s => s.id_sede === provincia.id_sede)) {
+                    sedesDisponibles.push(provincia);
+                }
+            });
+        });
+
+        // Cargar los modos en el select correspondiente
+        var modoSelect = document.getElementById("modo");
+        modoSelect.innerHTML = '<option value="" disabled selected>Seleccionar Modalidad</option>';
+        modosDisponibles.forEach(function(modo) {
+            var option = document.createElement("option");
+            option.value = modo;
+            option.text = modo === "1" ? "Presencial" : "Digital"; // Puedes adaptar según las modalidades disponibles
+            modoSelect.appendChild(option);
+        });
+
+        // Si solo hay un modo disponible, seleccionarlo automáticamente y pasar codcar
+        if (modosDisponibles.length === 1) {
+            modoSelect.value = modosDisponibles[0];
+            cambiarModo(codcar); // Cargar las provincias relacionadas y pasar codcar
+        }
+    }
 }
+
 </script>

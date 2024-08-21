@@ -24,11 +24,7 @@ import { ViewTransitions } from "astro:transitions";
       rel="stylesheet"
     />
     <!-- <script src="../scripts/scripts.js"></script> -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/ingreso-carreras-ucasal/flowbite.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
     <meta name="view-transition" content="same-origin" />
     <ViewTransitions />
     <script is:inline>
@@ -69,8 +65,6 @@ import { ViewTransitions } from "astro:transitions";
   </head>
   <body>
     <slot />
-    <script
-      src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/ingreso-carreras-ucasal/flowbite.min.js"
-    ></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
   </body>
 </html>
