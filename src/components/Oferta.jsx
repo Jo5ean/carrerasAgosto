@@ -83,6 +83,12 @@ const Oferta = () => {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+  const applyModalidadFilter = (modalidad) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      modalidad: [modalidad], // Aplica la modalidad seleccionada
+    }));
+  };
 
   return (
     <div>
@@ -264,7 +270,137 @@ const Oferta = () => {
           })}
         </div>
       </div>
+      <div id="estudiaEn">
+      <h2 className="bigTitle mt-5 shadow-black">
+        <span style={{ color: 'rgb(97, 96, 96)' }}>Modalidades:</span>
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5">
+        {/* Card 1 */}
+        <div className="rounded-lg overflow-hidden shadow">
+          <div className="px-6">
+            <div className="flex items-center">
+              <img
+                className="img-fluid w-20"
+                src="/landing/ingreso-carreras-ucasal/iconoPresencial.svg"
+                alt="Logo Presencial"
+              />
+              <h2 className="font-extrabold text-base md:text-lg relative text-[#CE3F43]">
+                PRESENCIAL (P)
+              </h2>
+            </div>
+            <div className="mt-3 md:mt-0 text-3xl md:text-xl">
+              <ul
+                className="list-disc list-inside md:text-lg text-sm"
+                style={{ fontFamily: 'Museo Sans',fontWeight: 500 }}
+              >
+                <li>
+                  La educación presencial tiene todos los beneficios del
+                  aprendizaje tradicional: mejora la comprensión, permite el
+                  desarrollo de habilidades socioemocionales y te asegura una
+                  interacción constante en tiempo real con docentes y compañeros.
+                </li>
+                <li>
+                  Implica un cursado en horario fijo en las instalaciones del
+                  Campus Castañares, es decir, una organización clara que
+                  facilitará tu desenvolvimiento en otros aspectos de tu vida
+                  personal como la práctica de la danza, los deportes o el
+                  idioma.
+                </li>
+                <li>Potenciamos tus habilidades con clases personalizadas.</li>
+              </ul>
+            </div>
+            <div className="py-5">
+              <a
+                href="#carreras"
+                onClick={() =>applyModalidadFilter('1')}
+                className="inline-flex items-center px-3 py-2 text-sm font-bold text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+              >
+                Buscar carreras con esta modalidad (Presencial)
+                <svg
+                  className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 10"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Card 2 */}
+        <div className="rounded-lg overflow-hidden shadow">
+          <div className="px-6">
+            <div className="flex items-center">
+              <img
+                className="img-fluid w-20"
+                src="/landing/ingreso-carreras-ucasal/iconoVirtual.svg"
+                alt="Logo Digital"
+              />
+              <h2 className="font-extrabold text-base md:text-lg relative text-[#003D7C]">
+                DIGITAL (D)
+              </h2>
+            </div>
+            <div className="mt-3 md:mt-0 text-3xl md:text-xl">
+              <ul
+                className="list-disc list-inside md:text-lg text-sm"
+                style={{ fontFamily: 'Museo Sans',fontWeight: 500 }}
+              >
+                <li>
+                  La educación digital es 100% online, adaptándose a tu realidad.
+                </li>
+                <li>
+                  Tendrás acceso a recursos de diversos formatos en el
+                  dispositivo que prefieras, entornos y sistemas de cátedras
+                  virtuales para que tu experiencia sea personalizada.
+                </li>
+                <li>
+                  Audios, video clases, cápsulas de conocimiento, guías de
+                  aprendizaje, bibliotecas virtuales, webinarios y
+                  videoconferencias son solo algunos de los recursos en formato
+                  sincrónico y asincrónico que tendrás disponible 24/7.
+                </li>
+                <li>Disfrutá de espacios físicos en tu sede y aprendé en comunidad.</li>
+              </ul>
+            </div>
+            <div className="py-5">
+              <a
+                href="#carreras"
+                onClick={()=> applyModalidadFilter('2')}
+                className="buttono inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                Buscar carreras con esta modalidad (Distancia)
+                <svg
+                  className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 10"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    </div>
+    
   );
 };
 export default Oferta;
