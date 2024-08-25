@@ -1,20 +1,14 @@
 ---
 export interface Props {
-  codcar?: string; 
+codcar?: string;
 }
 
 const { codcar } = Astro.props;
 ---
 
-<form
-  role="form"
-  id="pedidoinfo"
-  method="post"
-  enctype="multipart/form-data"
-  action="/postulantes_mail1.php"
+<form role="form" id="pedidoinfo" method="post" enctype="multipart/form-data" action="/postulantes_mail1.php"
   autocomplete="on"
-  class="bg-gray-200 rounded-lg p-6 shadow-md [&>div>input]:text-blue-600 [&>div>div>input]:text-blue-600 max-w-md"
->
+  class="bg-gray-200 rounded-lg p-6 shadow-md [&>div>input]:text-blue-600 [&>div>div>input]:text-blue-600 max-w-md">
   <!-- Campo oculto para pasar el valor de codcar -->
   <input type="hidden" id="hiddenCodcar" value={codcar} />
   <input type="hidden" value="4" name="id_origen" id="id_origen" />
@@ -31,98 +25,47 @@ const { codcar } = Astro.props;
   <input type="hidden" name="campaignid" id="campaignid" />
   <input type="hidden" name="referer" id="referer" />
   <input name="gclid" type="hidden" id="gclid" />
-  <input
-    type="hidden"
-    name="tkp"
-    value="/ingreso-carreras-ucasal/enviado-distancia-2021.php"
-  />
-  <input
-    type="hidden"
-    name="fkp"
-    value="/ingreso-carreras-ucasal/enviado-distancia-2021.php?id=404"
-  />
+  <input type="hidden" name="tkp" value="/ingreso-carreras-ucasal/enviado-distancia-2021.php" />
+  <input type="hidden" name="fkp" value="/ingreso-carreras-ucasal/enviado-distancia-2021.php?id=404" />
 
   <div class="grid md:grid-cols-2 md:gap-6">
     <div class="relative z-0 w-full mb-1 group">
-      <input
-        type="text"
-        name="nombre"
-        id="nombre"
+      <input type="text" name="nombre" id="nombre"
         class="block mb-2 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-blue-500 dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        placeholder=" "
-        required
-        tabindex="1"
-      />
-      <label
-        for="floating_first_name"
-        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-        >Nombre</label
-      >
+        placeholder=" " required tabindex="1" />
+      <label for="floating_first_name"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre</label>
     </div>
     <div class="relative z-0 w-full mb-1 group">
-      <input
-        type="text"
-        name="apellido"
-        id="apellido"
+      <input type="text" name="apellido" id="apellido"
         class="block px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        placeholder=" "
-        required
-        tabindex="2"
-      />
-      <label
-        for="floating_last_name"
-        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-        >Apellido</label
-      >
+        placeholder=" " required tabindex="2" />
+      <label for="floating_last_name"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Apellido</label>
     </div>
   </div>
   <div class="relative z-0 w-full mb-1 group mt-2">
-    <input
-      type="email"
-      name="email"
-      id="email"
+    <input type="email" name="email" id="email"
       class="block mb-2 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-      placeholder=" "
-      required
-      tabindex="3"
-    />
-    <label
-      for="floating_email"
-      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-      >Email</label
-    >
+      placeholder=" " required tabindex="3" />
+    <label for="floating_email"
+      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
   </div>
   <div class="relative z-0 w-full mb-1 group mt-5">
-    <input
-      type="text"
-      name="dni"
-      id="dni"
+    <input type="text" name="dni" id="dni"
       class="block px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-      placeholder=" "
-      required
-      tabindex="4"
-    />
-    <label
-      for="floating_email"
-      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-      >DNI para Promociones</label
-    >
+      placeholder=" " required tabindex="4" />
+    <label for="floating_email"
+      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">DNI
+      para Promociones</label>
   </div>
   <div class="relative z-0 w-full mb-1 mt-3 group">
-    <label
-      for="carrera"
-      class="block text-sm font-medium text-gray-500 dark:text-gray-400"
-    >
+    <label for="carrera" class="block text-sm font-medium text-gray-500 dark:text-gray-400">
       Seleccionar Modalidad
     </label>
-    <select
-      name="modo"
-      id="modo"
+    <select name="modo" id="modo"
       class="block w-full mt-1 px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
-      required
-      onchange="cambiarModo();"
-      tabindex="5"
-    >
+      required onchange="cambiarModo();" tabindex="5">
       <!-- Opciones del select -->
       <option value="" disabled selected>Seleccionar Modalidad</option>
       <option value="1">Presencial</option>
@@ -131,140 +74,78 @@ const { codcar } = Astro.props;
   </div>
   <div class="flex space-x-4">
     <div class="relative z-0 w-full mb-1 group">
-      <label
-        for="carrera"
-        class="block text-sm font-medium text-gray-500 dark:text-gray-400"
-      >
+      <label for="carrera" class="block text-sm font-medium text-gray-500 dark:text-gray-400">
         Seleccionar Provincia
       </label>
-      <select
-        name="cbx_provincia"
-        id="cbx_provincia"
+      <select name="cbx_provincia" id="cbx_provincia"
         class="block w-full mt-1 px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
-        required
-        onchange="cambiarProvincia();"
-        tabindex="6"
-        disabled
-      >
+        required onchange="cambiarProvincia();" tabindex="6" disabled>
         <!-- Opciones del select -->
         <option value="" disabled selected>Seleccionar Provincia</option>
       </select>
     </div>
     <div class="relative z-0 w-full mb-1 group">
-      <label
-        for="carrera"
-        class="block text-sm font-medium text-gray-500 dark:text-gray-400"
-      >
+      <label for="carrera" class="block text-sm font-medium text-gray-500 dark:text-gray-400">
         Seleccionar Sede
       </label>
-      <select
-        name="cbx_sede"
-        id="cbx_sede"
+      <select name="cbx_sede" id="cbx_sede"
         class="block w-full mt-1 px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
-        required
-        onchange="cambiarSede();"
-        tabindex="7"
-        disabled
-      >
+        required onchange="cambiarSede();" tabindex="7" disabled>
         <!-- Opciones del select -->
         <option value="" disabled selected>Seleccionar Sede</option>
       </select>
     </div>
   </div>
   {codcar ? (
-    <input type="hidden" name="cbx_carrera" value={codcar} />
+  <input type="hidden" name="cbx_carrera" value={codcar} />
   ) : (
-    <div class="relative z-0 w-full mb-1 group">
-      <label
-        for="carrera"
-        class="block text-sm font-medium text-gray-500 dark:text-gray-400"
-      >
-        Seleccionar Carrera
-      </label>
-      <select
-        name="cbx_carrera"
-        id="cbx_carrera"
-        class="block w-full mt-1 px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
-        required
-        tabindex="8"
-        disabled
-      >
-        <!-- Opciones del select -->
-        <option value="" disabled selected>Seleccionar Carrera</option>
-      </select>
-    </div>
+  <div class="relative z-0 w-full mb-1 group">
+    <label for="carrera" class="block text-sm font-medium text-gray-500 dark:text-gray-400">
+      Seleccionar Carrera
+    </label>
+    <select name="cbx_carrera" id="cbx_carrera"
+      class="block w-full mt-1 px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
+      required tabindex="8" disabled>
+      <!-- Opciones del select -->
+      <option value="" disabled selected>Seleccionar Carrera</option>
+    </select>
+  </div>
   )}
   <div class="flex space-x-4">
     <div class="relative z-0 w-full group mt-6">
-      <label
-        for="tel"
-        class="block text-sm font-medium text-gray-500 dark:text-gray-400"
-      ></label>
-      <select
-        name="tipo_tel"
-        id=""
+      <label for="tel" class="block text-sm font-medium text-gray-500 dark:text-gray-400"></label>
+      <select name="tipo_tel" id=""
         class="block w-full mt-1 px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
-        tabindex="9"
-        onchange="telefonoOnChange(this);"
-      >
+        tabindex="9" onchange="telefonoOnChange(this);">
         <option value="cel" style="padding:0px;">Cel</option>
         <option value="fijo" style="padding:0px;">Fijo</option>
       </select>
     </div>
     <div class="relative z-0 w-full group" style="margin-top: 25px;">
       <div class="relative z-0 w-full group">
-        <input
-          type="text"
-          name="cod_area"
-          id="cod"
-          size="4"
+        <input type="text" name="cod_area" id="cod" size="4"
           class="block px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-dark dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-          placeholder=""
-          tabindex="10"
-          oninput="validarLongitudTelefono(this, 4)"
-        />
-        <label
-          for="cod"
-          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >Cod. Area</label
-        >
+          placeholder="" tabindex="10" oninput="validarLongitudTelefono(this, 4)" />
+        <label for="cod"
+          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Cod.
+          Area</label>
       </div>
     </div>
     <div class="relative z-0 w-full group" style="margin-top: 25px;">
-      <input
-        type="text"
-        name="tel"
-        id="tel"
-        size="20"
+      <input type="text" name="tel" id="tel" size="20"
         class="block px-0 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-dark dark:border-gray-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-        placeholder=" "
-        required
-        tabindex="11"
-        oninput="validarLongitudTelefono(this, 13)"
-      />
-      <label
-        for="tel"
-        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-        >Número</label
-      >
+        placeholder=" " required tabindex="11" oninput="validarLongitudTelefono(this, 13)" />
+      <label for="tel"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Número</label>
     </div>
   </div>
-  <div
-    class="g-recaptcha mt-3"
-    tabindex="12"
-    data-callback="reCALLBACK"
-    data-sitekey="6LetQBEjAAAAAMewiwE_zXYFkT0IV-dx8_wW39ft"
-  >
+  <div class="g-recaptcha mt-3" tabindex="12" data-callback="reCALLBACK"
+    data-sitekey="6LetQBEjAAAAAMewiwE_zXYFkT0IV-dx8_wW39ft">
   </div>
   <div class="flex justify-center mt-2">
-    <button
-      id="formButton"
-      type="submit"
+    <button id="formButton" type="submit"
       class="boton-gris text-white bg-[#242F41] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 scale-105"
-      tabindex="13"
-      onclick="check()"
-      disabled
-    >
+      tabindex="13" onclick="check()" disabled>
       Enviar
     </button>
   </div>
@@ -273,102 +154,88 @@ const { codcar } = Astro.props;
 <script is:inline>
   // ###### CAMBIAR EL MODO DEL SELECT FILTRA LA OFERTA ######
   function cambiarModo(codcar = null) {
-    var modoSelect = document.getElementById("modo");
+    let modoSelect = document.getElementById("modo");
+    var carrerasArray = JSON.parse(window.localStorage.getItem("CarrerasModGeneral"));
 
-    // Verificar si el select de modo existe y tiene un valor seleccionado
-    if (!modoSelect || !modoSelect.value) {
-        console.error("El elemento modo no existe o no tiene un valor seleccionado");
-        return; // Salir de la función si no hay un modo seleccionado
+    var carrerasMod;
+    if (codcar) {
+      // Si se proporciona codcar, filtra las carreras para esa carrera específica
+      carrerasMod = carrerasArray.filter(carrera => carrera.codcar === codcar);
+      console.log("cargamos carrerasMod: ", carrerasMod);
+      modoSelect.innerHTML = '<option value="" disabled selected>Seleccionar Modalidad</option>';
+      carrerasMod.forEach(function (carrera) {
+        var option = document.createElement("option");
+        option.value = carrera.modo;
+        option.text = carrera.modo === "1" ? "Presencial" : "Digital";
+        modoSelect.appendChild(option);
+      });
+
+      // Si solo hay un modo disponible, seleccionarlo automáticamente y pasar codcar
+      if (carrerasMod.length === 1) {
+        modoSelect.value = carrerasMod[0].modo;
+        filtrarProvinciasYActualizar(carrerasMod[0].modo, carrerasMod);
+      }
+    } else {
+      // Si no se proporciona codcar, usar el modo seleccionado en el formulario
+      let modo = modoSelect.value;
+      carrerasMod = carrerasArray.filter(carrera => carrera.modo == modo);
+      filtrarProvinciasYActualizar(modo, carrerasMod);
     }
+  }
 
-    var modo = modoSelect.value;
+  function filtrarProvinciasYActualizar(modo, carrerasMod) {
+    let provinciaSelect = document.getElementById("cbx_provincia");
+    provinciaSelect.removeAttribute("disabled");
+    provinciaSelect.innerHTML = '<option value="" selected>Seleccionar Provincia</option>';
+    document.getElementById("cbx_sede").innerHTML = '<option value="" selected>Seleccionar Sede</option>';
 
-    // Continuar solo si el select de modo tiene un valor válido
-    if (modo) {
-        // Habilitar el select de provincia
-        var provinciaSelect = document.getElementById("cbx_provincia");
-        if (provinciaSelect) {
-            provinciaSelect.removeAttribute("disabled");
-            provinciaSelect.innerHTML = '<option value="" selected>Seleccionar Provincia</option>';
-        } else {
-            console.error("El select de provincia no se encontró en el DOM");
-            return;
+    let list_prov_id = [];
+    let listaProvincia = [];
+
+    carrerasMod.forEach(function (valorCarrera) {
+      valorCarrera.provincias.forEach(function (valor) {
+        if (!list_prov_id.includes(valor.id_provincia)) {
+          list_prov_id.push(valor.id_provincia);
+          listaProvincia.push(valor);
         }
+      });
+    });
+    console.log("Hasta aca que llega en carrerasMod: ", carrerasMod);
+    console.log("list_prov_id: ", list_prov_id);
+    console.log("listaProvincia: ", listaProvincia);
 
-        // Restablecer los selects de sede y carrera
-        var sedeSelect = document.getElementById("cbx_sede");
-        var carreraSelect = document.getElementById("cbx_carrera");
 
-        if (sedeSelect) {
-            sedeSelect.innerHTML = '<option value="" selected>Seleccionar Sede</option>';
-        } else {
-            console.error("El select de sede no se encontró en el DOM");
-            return;
-        }
+    listaProvincia.sort((a, b) => a.nombre_provincia.localeCompare(b.nombre_provincia));
 
-        if (carreraSelect) {
-            carreraSelect.innerHTML = '<option value="" selected>Seleccionar Carrera</option>';
-        } else {
-            console.error("El select de carrera no se encontró en el DOM");
-            return;
-        }
+    listaProvincia.forEach(function (valor) {
+      let option = document.createElement("option");
+      option.value = valor.id_provincia;
+      option.text = valor.nombre_provincia;
+      provinciaSelect.appendChild(option);
+    });
 
-        // Obtener las carreras del localStorage
-        var carrerasMod = JSON.parse(window.localStorage.getItem("carrerasMod"));
-
-        // Si se proporciona codcar, filtrar carreras específicas
-        if (codcar) {
-            carrerasMod = carrerasMod.filter(carrera => carrera.codcar === codcar);
-        }
-
-        if (carrerasMod) {
-            var provinciasDisponibles = [];
-            carrerasMod.forEach(function (valorCarrera) {
-                valorCarrera.provincias.forEach(function (provincia) {
-                    if (!provinciasDisponibles.some(p => p.id_provincia === provincia.id_provincia)) {
-                        provinciasDisponibles.push(provincia);
-                    }
-                });
-            });
-
-            // Ordenar alfabéticamente las provincias
-            provinciasDisponibles.sort((a, b) =>
-                a.nombre_provincia.localeCompare(b.nombre_provincia)
-            );
-
-            // Agregar las provincias al select
-            provinciasDisponibles.forEach(function (provincia) {
-                var option = document.createElement("option");
-                option.value = provincia.id_provincia;
-                option.text = provincia.nombre_provincia;
-                provinciaSelect.appendChild(option);
-            });
-
-            // Si solo hay una provincia, seleccionarla automáticamente y continuar el flujo
-            if (provinciasDisponibles.length === 1) {
-                provinciaSelect.value = provinciasDisponibles[0].id_provincia;
-                cambiarProvincia(); // Llamar a la función para cargar las sedes
-            }
-        } else {
-            console.error("No se encontraron carreras en el almacenamiento local");
-        }
+    if (listaProvincia.length == 1) {
+      console.log("listaProvincia (ingresamos al if): ", listaProvincia);
+      provinciaSelect.value = listaProvincia[0].id_provincia;
+      cambiarProvincia();  // Llama a la función para seguir el flujo si hay una sola provincia
     }
-}
-
+  }
 
   // ###### SELECCIONADA LA CARRERA CARGA LAS PROVINCIAS DONDE SE OFRECE ######
   function cambiarProvincia() {
     var provincia = document.getElementById("cbx_provincia").value;
     var modo = document.getElementById("modo").value;
+    var codcar = document.getElementById("hiddenCodcar").value;
 
     // Vaciar los selects de sede y carrera
-    document.getElementById("cbx_sede").innerHTML =
-      '<option value="" selected>Seleccionar Sede</option>';
-    document.getElementById("cbx_carrera").innerHTML =
-      '<option value="" selected>Seleccionar Carrera</option>';
+    document.getElementById("cbx_sede").innerHTML = '<option value="" selected>Seleccionar Sede</option>';
+    if (!codcar) {
+      console.log("No hay codcar - cambiarProvincia");
+      document.getElementById("cbx_carrera").innerHTML = '<option value="" selected>Seleccionar Carrera</option>';
+    }
 
     // Habilitar el select de sede
-    let element = document.getElementById("cbx_sede");
+    let element = document.getElementById('cbx_sede');
     element.removeAttribute("disabled");
 
     var carrerasMod = JSON.parse(window.localStorage.getItem("carrerasMod"));
@@ -382,10 +249,7 @@ const { codcar } = Astro.props;
       carrerasMod.forEach(function (valorCarrera) {
         var provincias = valorCarrera.provincias;
         provincias.forEach(function (valor) {
-          if (
-            !list_sedes_id.includes(valor.id_sede) &&
-            valor.id_provincia == provincia
-          ) {
+          if (!list_sedes_id.includes(valor.id_sede) && valor.id_provincia == provincia) {
             list_sedes_id.push(valor.id_sede); // Agregar al listado para no tomar repetidos
             listaProvincia.push(valor); // Guardar el objeto provincias para ordenarlo
           }
@@ -404,8 +268,7 @@ const { codcar } = Astro.props;
       });
 
       if (listaProvincia.length == 1) {
-        document.getElementById("cbx_sede").value =
-          document.getElementById("cbx_sede").options[1].value;
+        document.getElementById("cbx_sede").value = document.getElementById("cbx_sede").options[1].value;
         cambiarSede(); // Llama a la función cambiarSede para seguir el flujo
       }
     }
@@ -416,14 +279,17 @@ const { codcar } = Astro.props;
     var provincia = document.getElementById("cbx_provincia").value;
     var modo = document.getElementById("modo").value;
     var sede = document.getElementById("cbx_sede").value;
+    var codcar = document.getElementById("hiddenCodcar").value;
 
-    // Vaciar el select de carrera
-    document.getElementById("cbx_carrera").innerHTML =
-      '<option value="" selected>Seleccionar Carrera</option>';
+    if (!codcar) {
+      console.log("No hay codcar - cambiarSede");
 
-    // Habilitar el select de carrera
-    let element = document.getElementById("cbx_carrera");
-    element.removeAttribute("disabled");
+      document.getElementById("cbx_carrera").innerHTML = '<option value="" selected>Seleccionar Carrera</option>';
+      // Habilitar el select de carrera
+      let element = document.getElementById("cbx_carrera");
+      element.removeAttribute("disabled");
+    }
+
 
     var carrerasMod = JSON.parse(window.localStorage.getItem("carrerasMod"));
 
@@ -494,56 +360,11 @@ const { codcar } = Astro.props;
 } */
 
   /* FUNCION PARA COMPLETAR OFERTA EN FUNCION DE LA CARRERA ENVIADA POR ASTROPROPS */
-  document.addEventListener("DOMContentLoaded", function() {
-    var codcar = document.getElementById("hiddenCodcar").value;  // Obtener el valor de codcar (ES STRING!!!)
-    console.log("codcar: ", codcar);
+  document.addEventListener("DOMContentLoaded", function () {
+    const codcar = document.getElementById("hiddenCodcar").value;  // Obtener el valor de codcar
+
     if (codcar) {
-        completarOferta(codcar);  // Llamar a la función usando codcar
+      cambiarModo(codcar);  // Llamar directamente a cambiarModo con codcar
     }
-});
-
-function completarOferta(codcar) {
-    var carrerasArray = JSON.parse(window.localStorage.getItem("CarrerasModGeneral"));
-    console.log("carrerasArray: ", carrerasArray);
-    
-    // Filtrar las carreras que tienen el codcar deseado
-    var carrerasSeleccionadas = carrerasArray.filter(carrera => carrera.codcar === codcar);
-    console.log("carrerasSeleccionadas: ", carrerasSeleccionadas);
-
-    if (carrerasSeleccionadas.length > 0) {
-        var modosDisponibles = [];
-        var provinciasDisponibles = [];
-        var sedesDisponibles = [];
-
-        // Recorrer cada modalidad de la carrera seleccionada
-        carrerasSeleccionadas.forEach(function(carrera) {
-            modosDisponibles.push(carrera.modo);
-            carrera.provincias.forEach(function(provincia) {
-                if (!provinciasDisponibles.some(p => p.id_provincia === provincia.id_provincia)) {
-                    provinciasDisponibles.push(provincia);
-                }
-                if (!sedesDisponibles.some(s => s.id_sede === provincia.id_sede)) {
-                    sedesDisponibles.push(provincia);
-                }
-            });
-        });
-
-        // Cargar los modos en el select correspondiente
-        var modoSelect = document.getElementById("modo");
-        modoSelect.innerHTML = '<option value="" disabled selected>Seleccionar Modalidad</option>';
-        modosDisponibles.forEach(function(modo) {
-            var option = document.createElement("option");
-            option.value = modo;
-            option.text = modo === "1" ? "Presencial" : "Digital"; // Puedes adaptar según las modalidades disponibles
-            modoSelect.appendChild(option);
-        });
-
-        // Si solo hay un modo disponible, seleccionarlo automáticamente y pasar codcar
-        if (modosDisponibles.length === 1) {
-            modoSelect.value = modosDisponibles[0];
-            cambiarModo(codcar); // Cargar las provincias relacionadas y pasar codcar
-        }
-    }
-}
-
+  });
 </script>
