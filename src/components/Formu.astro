@@ -159,29 +159,28 @@ const { codcar } = Astro.props;
 
     var carrerasMod;
     if (codcar) {
-      // Si se proporciona codcar, filtra las carreras para esa carrera específica
-      carrerasMod = carrerasArray.filter(carrera => carrera.codcar === codcar);
-      console.log("cargamos carrerasMod: ", carrerasMod);
-      modoSelect.innerHTML = '<option value="" disabled selected>Seleccionar Modalidad</option>';
-      carrerasMod.forEach(function (carrera) {
-        var option = document.createElement("option");
-        option.value = carrera.modo;
-        option.text = carrera.modo === "1" ? "Presencial" : "Digital";
-        modoSelect.appendChild(option);
-      });
+        carrerasMod = carrerasArray.filter(carrera => carrera.codcar === codcar);
+        modoSelect.innerHTML = '<option value="" disabled selected>Seleccionar Modalidad</option>';
+        carrerasMod.forEach(function (carrera) {
+            var option = document.createElement("option");
+            option.value = carrera.modo;
+            option.text = carrera.modo === "1" ? "Presencial" : "Digital";
+            modoSelect.appendChild(option);
+        });
 
-      // Si solo hay un modo disponible, seleccionarlo automáticamente y pasar codcar
-      if (carrerasMod.length === 1) {
-        modoSelect.value = carrerasMod[0].modo;
-        filtrarProvinciasYActualizar(carrerasMod[0].modo, carrerasMod);
-      }
+        if (carrerasMod.length === 1) {
+            modoSelect.value = carrerasMod[0].modo;
+            filtrarProvinciasYActualizar(carrerasMod[0].modo, carrerasMod);
+        }
     } else {
-      // Si no se proporciona codcar, usar el modo seleccionado en el formulario
-      let modo = modoSelect.value;
-      carrerasMod = carrerasArray.filter(carrera => carrera.modo == modo);
-      filtrarProvinciasYActualizar(modo, carrerasMod);
+        let modo = modoSelect.value;
+        carrerasMod = carrerasArray.filter(carrera => carrera.modo == modo);
+        filtrarProvinciasYActualizar(modo, carrerasMod);
     }
-  }
+
+    // Almacenar carrerasMod filtrado en localStorage
+    window.localStorage.setItem("carrerasMod", JSON.stringify(carrerasMod));
+}
 
   function filtrarProvinciasYActualizar(modo, carrerasMod) {
     let provinciaSelect = document.getElementById("cbx_provincia");
@@ -239,7 +238,7 @@ const { codcar } = Astro.props;
     element.removeAttribute("disabled");
 
     var carrerasMod = JSON.parse(window.localStorage.getItem("carrerasMod"));
-    console.log("carrerasArray: ", carrerasMod);
+    console.log("carrerasMod: ", carrerasMod);
 
     if (carrerasMod) {
       var list_sedes_id = [];
@@ -297,7 +296,7 @@ const { codcar } = Astro.props;
       const carrerasSedes = carrerasMod.filter((carreras) =>
         carreras.provincias.some((provincia) => provincia.id_sede == sede)
       );
-
+      console.log(carrerasSedes)
       carrerasSedes.forEach(function (valor) {
         var option = document.createElement("option");
         option.value = valor.codcar;
