@@ -1,10 +1,10 @@
 ---
+import Layout from "../layouts/Layout.astro";
 import { datita } from "../scripts/datita";
 import Button from "../components/Button.astro";
 import Footer from "../components/Footer.astro";
 import Container from "../components/Container.astro";
 import Formu from "../components/Formu.astro";
-export const prerender = true;
 
 export function getStaticPaths() {
   const fran = datita.map((e) => e.codcar);
@@ -34,16 +34,21 @@ function getModeText(modoArray) {
 }
 ---
 
-<div class="bg-gray-100">
+<Layout title={carrera ? carrera.nombre : "Carrera no encontrada"}>
+  <div class="bg-gray-100">
     <Container>
-      <div class="p-2 grid grid-cols-2 md:grid-cols-3 border-b-2  border-black">
+      <div class="p-2 grid grid-cols-2 md:grid-cols-3 border-b-2 border-black">
         <div class="flex justify-start">
           <Button label="Volver atras" dir="history.go(-1);" />
         </div>
         <div class="flex md:justify-center justify-end">
-          <img src="/landing/ingreso-carreras-ucasal/isologo.svg" alt="UCASAL Logo" class="mr-4 w-1/2" />
+          <img
+            src="/landing/ingreso-carreras-ucasal/isologo.svg"
+            alt="UCASAL Logo"
+            class="mr-4 w-1/2"
+          />
         </div>
-        <div class="justify-end hidden md:block">
+        <div class="justify-end hidden md:flex">
           <Button
             label="¡Quiero inscribirme!"
             dir="https://www.ucasal.edu.ar/inscripciones"
@@ -51,97 +56,175 @@ function getModeText(modoArray) {
         </div>
       </div>
     </Container>
-  <Container>
-    <main class="p-2 mt-4 rounded relative">
-      <div class="top-0 left-0 right-0 z-10 p-4 ">
-        <div class="border-b-2 border-gray-300 mb-4">
-          <div class="flex justify-between items-center">
-            <h2 class="text-3xl font-bold">
-              {carrera ? carrera.nombre : "Carrera no encontrada"}
-            </h2>
-            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded w-48">
-              Duración: {carrera ? carrera.duracion : "N/A"}
-            </span>
+    <Container>
+      <main class="p-2 mt-4 rounded relative">
+        <div class="top-0 left-0 right-0 z-10 p-4">
+          <div class="border-b-2 border-gray-300 mb-4">
+            <div class="flex justify-between items-center">
+              <h2 class="text-3xl font-bold">
+                {carrera ? carrera.nombre : "Carrera no encontrada"}
+              </h2>
+              <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded w-48">
+                Duración: {carrera ? carrera.duracion : "N/A"}
+              </span>
+            </div>
+            <p class="text-sm text-gray-500">
+              Aprobada por Resolución Ministerial Nº 2214/11
+            </p>
           </div>
-          <p class="text-sm text-gray-500">
-            Aprobada por Resolución Ministerial Nº 2214/11
-          </p>
         </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+          <div class="max-md:relative z-0 md:row md:row-span-4 items-center">
+            <img
+              src=`/landing/ingreso-carreras-ucasal/agosto/${carrera? carrera.nom_landing : "general"}.jpg`
+              alt={carrera ? carrera.nombre : "imagen-carrera"}
+              class="w-full rounded shadow-md max-md:opacity-80"
+            />
+            <div
+              class="items-center max-md:absolute max-md:top-0 max-md:z-30 justify-between"
+            >
+              <div class="overflow-hidden p-2">
+                <div
+                  class="max-md:grid max-md:grid-cols-2 justify-center max-md:bg-black max-md:bg-opacity-50 rounded"
+                >
+                  <div class="flex items-center mb-6">
+                    <img
+                      src="/landing/ingreso-carreras-ucasal/complemento/01.svg"
+                      class="w-12 h-12 bg-white bg-opacity-80 rounded-2xl"
+                    />
+                    <h1
+                      class="ml-4 text-lg font-medium text-gray-100 md:text-gray-800"
+                    >
+                      <span class="text-xl"> Cantidad de horas </span><br />
+                      <span class="text-md">
+                        {carrera.duracion ? carrera.duracion : "algo"}
+                      </span>
+                    </h1>
+                  </div>
+                  <div class="flex items-center mb-6">
+                    <img
+                      src="/landing/ingreso-carreras-ucasal/complemento/06.svg"
+                      class="w-12 h-12 bg-white bg-opacity-80 rounded-2xl"
+                    />
+                    <h1
+                      class="ml-4 text-lg font-medium text-gray-100 md:text-gray-800"
+                    >
+                      <span class="text-xl"> Modalidad </span><br />
+                      <span class="text-md">
+                        {
+                          carrera
+                            ? getModeText(carrera.modo)
+                            : "Carrera no Encontrada."
+                        }
+                      </span>
+                    </h1>
+                  </div>
+                  <div class="flex items-center mb-6">
+                    <img
+                      src="/landing/ingreso-carreras-ucasal/complemento/05.svg"
+                      class="w-12 h-12 bg-white bg-opacity-80 rounded-2xl"
+                    />
+                    <h1
+                      class="ml-4 text-lg font-medium text-gray-100 md:text-gray-800"
+                    >
+                      <span class="text-xl"> Inicio de Clases </span><br />
+                      <span class="text-md"> </span>
+                    </h1>
+                  </div>
+                  <div class="flex items-center mb-6">
+                    <img
+                      src="/landing/ingreso-carreras-ucasal/complemento/07.svg"
+                      class="w-12 h-12 bg-white bg-opacity-80 rounded-2xl"
+                    />
+                    <h1
+                      class="ml-4 text-lg font-medium text-gray-100 md:text-gray-800"
+                    >
+                      <span class="text-xl"> Cantidad de Materias </span><br />
+                      <span class="text-md"> </span>
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-2">
+            <div class="p-4">
+              <div class="grid grid-cols-1 h-full justify-center items-center">
+                <h3 class="text-lg font-semibold text-red-600">
+                  Descripción de carrera:
+                </h3>
+                <p class="text-black md:text-gray-800 mt-2 mr-3">
+                  {carrera ? carrera.description : "Carrera no encontrada"}
+                </p>
+                <div class="flex justify-center">
+                  <Formu codcar={carrera.codcar.toString()} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <div class="bg-gray-100">
+        <div class="mx-auto mt-6 p-6 bg-white shadow-md flex">
+          <div class="w-2/3 p-6 bg-white">
+            <div class="text-gray-500 text-sm">
+              Carreras de Grado / Carreras Presenciales <br />
+              <span class="text-red-600">Facultad de Ciencias Jurídicas</span>
+            </div>
+            <div class="mt-4 flex items-center">
+              <img src="https://placehold.co/100x100" alt="Graduate Image" class="w-full object-cover rounded shadow-md"/>
+            </div>
+          </div>
+          <div class="w-1/5 flex flex-col justify-center space-y-4">
+            <div class="bg-red-600 text-white text-center py-4 px-8 rounded">
+              <p class="text-2xl font-bold">5</p>
+              <p>AÑOS</p>
+            </div>
+            <div class="bg-red-600 text-white text-center py-4 px-8 rounded">
+              <p class="text-2xl font-bold">2.864</p>
+              <p>HS. Carga Horaria</p>
+            </div>
+            <div class="bg-red-600 text-white text-center py-4 px-8 rounded">
+              <p class="text-2xl font-bold">Modalidad</p>
+              <p>Presencial</p>
+            </div>
+          </div>          
+        </div>
+      
+        <div class="mt-6 grid grid-cols-2 gap-6">
+          <!-- Graduate Profile -->
+          <div class="p-4 border rounded bg-gray-50">
+            <h3 class="text-red-600 text-lg mb-2">Perfil del Egresado</h3>
+            <ul class="list-disc list-inside text-gray-700">
+              <li>Prestar servicios profesionales a la sociedad y para la sociedad.</li>
+              <li>Ver al derecho como una herramienta para la convivencia humana y a la justicia social.</li>
+              <li>Tener fe en la libertad sin la cual no hay ni derecho, ni justicia, ni paz.</li>
+              <li>
+                Reciclar sus conocimientos, enriquecer sus experiencias, acrecentar la
+                profundidad de su pensamiento y reconocer sus errores y dificultades.
+              </li>
+              <li>
+                Ser celoso auxiliar de la justicia con una incondicional indignación y
+                desprecio a la procuración de injusticia.
+              </li>
+              <li>
+                Tener profundo conocimiento de la ley, la doctrina, la jurisprudencia y
+                los profesionales del derecho.
+              </li>
+              <li>Ser protagonista del presente y artífice del futuro, con el objetivo apasionante de servir al derecho.</li>
+            </ul>
+          </div>
+        
+          <!-- Form -->
+          <div class="p-6 border rounded bg-gray-50">
+            <Formu codcar={carrera.codcar.toString()} />
+          </div>
+        </div>
+        
       </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-2"> 
-        <div class="max-md:relative z-0 md:row md:row-span-4 items-center">
-          <img
-            src=`/landing/ingreso-carreras-ucasal/agosto/${carrera? carrera.nom_landing : "general"}.jpg`
-            alt=`${carrera? carrera.nombre : "imagen-carrera"}`
-            class="w-full rounded shadow-md max-md:opacity-80"
-          />
-          <div class="items-center max-md:absolute max-md:top-0 max-md:z-30 justify-between" >
-            <div class="overflow-hidden p-2">
-              <div class="max-md:grid max-md:grid-cols-2 justify-center max-md:bg-black max-md:bg-opacity-50 rounded">
-                <div class="flex items-center mb-6">
-                  <img src="/landing/ingreso-carreras-ucasal/complemento/01.svg" class="w-12 h-12 bg-white bg-opacity-80 rounded-2xl"/>
-                  <h1 class="ml-4 text-lg font-medium text-gray-100 md:text-gray-800">
-                    <span class="text-xl"> Cantidad de horas </span><br />
-                    <span class="text-md">
-                      {carrera.duracion ? carrera.duracion : "algo"}
-                    </span>
-                  </h1>
-                </div>
-                <div class="flex items-center mb-6">
-                  <img src="/landing/ingreso-carreras-ucasal/complemento/06.svg" class="w-12 h-12 bg-white bg-opacity-80 rounded-2xl"  />
-                  <h1 class="ml-4 text-lg font-medium text-gray-100 md:text-gray-800">
-                    <span class="text-xl"> Modalidad </span><br />
-                    <span class="text-md">
-                      {
-                        carrera
-                          ? getModeText(carrera.modo)
-                          : "Carrera no Encontrada."
-                      }
-                    </span>
-                  </h1>
-                </div>
-                <div class="flex items-center mb-6">
-                  <img src="/landing/ingreso-carreras-ucasal/complemento/05.svg" class="w-12 h-12 bg-white bg-opacity-80 rounded-2xl" />
-                  <h1 class="ml-4 text-lg font-medium text-gray-100 md:text-gray-800">
-                    <span class="text-xl"> Inicio de Clases </span><br />
-                    <span class="text-md"> </span>
-                  </h1>
-                </div>
-                <div class="flex items-center mb-6">
-                  <img src="/landing/ingreso-carreras-ucasal/complemento/07.svg" class=" w-12 h-12 bg-white bg-opacity-80 rounded-2xl" />
-                  <h1 class="ml-4 text-lg font-medium text-gray-100 md:text-gray-800">
-                    <span class="text-xl"> Cantidad de Materias </span><br />
-                    <span class="text-md"> </span>
-                  </h1>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-span-2">
-          <div class="p-4">
-            <div class="grid grid-cols-1 h-full justify-center items-center">
-              <h3 class="text-lg font-semibold text-red-600">
-                Descripción de carrera:
-              </h3>
-              <p class="text-black md:text-gray-800 mt-2 mr-3">
-                {carrera ? carrera.description : "Carrera no encontrada"}
-              </p>
-              <div class="flex justify-center">
-                <Formu codcar={carrera.codcar.toString()} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-  </Container>
-</div>
-<Footer />
-
-<style is:inline>
-  html {
-    zoom: 1 !important;
-  }
-</style>
+    </Container>
+  </div>
+  <Footer />
+</Layout>
