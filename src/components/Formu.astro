@@ -2,13 +2,12 @@
 export interface Props {
 codcar?: string;
 }
-
 const { codcar } = Astro.props;
 ---
 
 <form role="form" id="pedidoinfo" method="post" enctype="multipart/form-data" action="/postulantes_mail1.php"
   autocomplete="on"
-  class="bg-gray-200 rounded-lg p-6 shadow-md [&>div>input]:text-blue-600 [&>div>div>input]:text-blue-600 max-w-md">
+  class="bg-gray-200 rounded-lg p-4 shadow-md [&>div>input]:text-blue-600 [&>div>div>input]:text-blue-600 max-w-md">
   <!-- Campo oculto para pasar el valor de codcar -->
   <input type="hidden" id="hiddenCodcar" value={codcar} />
   <input type="hidden" value="4" name="id_origen" id="id_origen" />
@@ -66,7 +65,6 @@ const { codcar } = Astro.props;
     <select name="modo" id="modo"
       class="block w-full mt-1 px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
       required onchange="cambiarModo();" tabindex="5">
-      <!-- Opciones del select -->
       <option value="" disabled selected>Seleccionar Modalidad</option>
       <option value="1">Presencial</option>
       <option value="7">Digital</option>
@@ -75,24 +73,22 @@ const { codcar } = Astro.props;
   <div class="flex space-x-4">
     <div class="relative z-0 w-full mb-1 group">
       <label for="carrera" class="block text-sm font-medium text-gray-500 dark:text-gray-400">
-        Seleccionar Provincia
+        Provincia
       </label>
       <select name="cbx_provincia" id="cbx_provincia"
         class="block w-full mt-1 px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
         required onchange="cambiarProvincia();" tabindex="6" disabled>
-        <!-- Opciones del select -->
-        <option value="" disabled selected>Seleccionar Provincia</option>
+        <option value="" disabled selected>Provincia</option>
       </select>
     </div>
     <div class="relative z-0 w-full mb-1 group">
       <label for="carrera" class="block text-sm font-medium text-gray-500 dark:text-gray-400">
-        Seleccionar Sede
+        Sede
       </label>
       <select name="cbx_sede" id="cbx_sede"
         class="block w-full mt-1 px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
         required onchange="cambiarSede();" tabindex="7" disabled>
-        <!-- Opciones del select -->
-        <option value="" disabled selected>Seleccionar Sede</option>
+        <option value="" disabled selected>Sede</option>
       </select>
     </div>
   </div>
@@ -106,7 +102,6 @@ const { codcar } = Astro.props;
     <select name="cbx_carrera" id="cbx_carrera"
       class="block w-full mt-1 px-3 border border-gray-300 bg-white shadow-sm focus:ring-blue-600 focus:border-blue-600 dark:bg-white dark:text-dark dark:border-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:outline-none sm:text-sm [&>option]:text-gray-500"
       required tabindex="8" disabled>
-      <!-- Opciones del select -->
       <option value="" disabled selected>Seleccionar Carrera</option>
     </select>
   </div>
@@ -216,7 +211,7 @@ const { codcar } = Astro.props;
     if (listaProvincia.length == 1) {
       console.log("listaProvincia (ingresamos al if): ", listaProvincia);
       provinciaSelect.value = listaProvincia[0].id_provincia;
-      cambiarProvincia();  // Llama a la función para seguir el flujo si hay una sola provincia
+      cambiarProvincia();
     }
   }
 
@@ -289,7 +284,6 @@ const { codcar } = Astro.props;
       element.removeAttribute("disabled");
     }
 
-
     var carrerasMod = JSON.parse(window.localStorage.getItem("carrerasMod"));
 
     if (carrerasMod) {
@@ -327,19 +321,11 @@ const { codcar } = Astro.props;
 
   // ###### FUNCION PARA VALIDAR LONGITUD Y CARACTERISTICAS DE TELEFONO ######
   function validarLongitudTelefono(inputTelefono, longitudMaxima) {
-    // Obtener el valor actual del campo de teléfono
     var telefono = inputTelefono.value;
-
-    // Limpiar el número de teléfono de cualquier carácter que no sea un dígito
     var telefonoLimpio = telefono.replace(/\D/g, "");
-
-    // Limitar la longitud del número de teléfono a la longitud máxima especificada
     if (telefonoLimpio.length > longitudMaxima) {
-      // Si se excede la longitud, cortar el número
       telefonoLimpio = telefonoLimpio.slice(0, longitudMaxima);
     }
-
-    // Asignar el valor limpio de nuevo al campo de teléfono
     inputTelefono.value = telefonoLimpio;
   }
 
@@ -360,10 +346,9 @@ const { codcar } = Astro.props;
 
   /* FUNCION PARA COMPLETAR OFERTA EN FUNCION DE LA CARRERA ENVIADA POR ASTROPROPS */
   document.addEventListener("DOMContentLoaded", function () {
-    const codcar = document.getElementById("hiddenCodcar").value;  // Obtener el valor de codcar
-
+    const codcar = document.getElementById("hiddenCodcar").value;
     if (codcar) {
-      cambiarModo(codcar);  // Llamar directamente a cambiarModo con codcar
+      cambiarModo(codcar);
     }
   });
 </script>
