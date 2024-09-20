@@ -93,6 +93,9 @@ const Oferta = () => {
   return (
     <div>
       <div id="carreras"></div>
+      <h2 className="bigTitle mt-8 shadow-black">
+        <span style={{ color: 'rgb(97, 96, 96)' }}>Conoce nuestra </span><span style={{color:'rgb(238, 24, 24)'}}> oferta educativa:</span>
+      </h2>
       <form className="max-w-md mx-auto mt-5 relative" onSubmit={handleSubmit}>
         <div className=" grid grid-cols-6 w-full justify-center">
           <div className=" w-full col-span-5">
