@@ -1,8 +1,9 @@
 ---
 export interface Props {
 codcar?: string;
+nombre?: string;
 }
-const { codcar } = Astro.props;
+const { codcar, nombre } = Astro.props;
 ---
 
 <form role="form" id="pedidoinfo" method="post" enctype="multipart/form-data" action="/postulantes_mail1.php"
@@ -26,6 +27,11 @@ const { codcar } = Astro.props;
   <input name="gclid" type="hidden" id="gclid" />
   <input type="hidden" name="tkp" value="/ingreso-carreras-ucasal/enviado-distancia-2021.php" />
   <input type="hidden" name="fkp" value="/ingreso-carreras-ucasal/enviado-distancia-2021.php?id=404" />
+ 
+  <p class="text-base font-medium my-2 text-center text-gray-900">
+    Quiero recibir informaci&oacute;n en: <br>
+    <spam class="font-bold text-lime-600">{nombre}</spam>
+  </p>
 
   <div class="grid md:grid-cols-2 md:gap-6">
     <div class="relative z-0 w-full mb-1 group">

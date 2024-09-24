@@ -32,27 +32,39 @@ const Oferta = () => {
     const normalizedSearchTerm = sinDiacriticos(
       searchTerm.toLowerCase().trim()
     );
-
+  
     const filtered = datita.filter((carrera) => {
       const matchesSearchTerm = sinDiacriticos(carrera.nombre.toLowerCase()).includes(
         normalizedSearchTerm
       );
-
+  
       const matchesFacultades = filters.facultades.length
         ? filters.facultades.includes(carrera.codare.toString())
         : true;
+  
+      // Ajuste aquí para que "Digital" (2) también incluya "Distancia" (7)
       const matchesModalidad = filters.modalidad.length
-        ? carrera.modo.some(m => filters.modalidad.includes(m.toString()))
+        ? carrera.modo.some(modo => {
+            // Si seleccionas "Digital" (modo 2), también incluye carreras con "Distancia" (modo 7)
+            if (filters.modalidad.includes("2")) {
+              return modo === 2 || modo === 7; // incluir digital y distancia
+            }
+            // Comparar normalmente con los filtros seleccionados
+            return filters.modalidad.includes(modo.toString());
+          })
         : true;
+  
       const matchesTipo = filters.tipo.length
         ? filters.tipo.includes(carrera.tipcar)
         : true;
-
+  
       return matchesSearchTerm && matchesFacultades && matchesModalidad && matchesTipo;
     });
-
+  
     setFilteredCarreras(filtered);
   }, [searchTerm, filters]);
+  
+  
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
@@ -93,9 +105,10 @@ const Oferta = () => {
   return (
     <div>
       <div id="carreras"></div>
-      <h2 className="bigTitle mt-8 shadow-black">
-        <span style={{ color: 'rgb(97, 96, 96)' }}>Conoce nuestra </span><span style={{color:'rgb(238, 24, 24)'}}> oferta educativa:</span>
+      <h2 className="bigTitle mt-8 shadow-black mb-5">
+        <span style={{ color: 'rgb(97, 96, 96)' }}>Conoce nuestras </span><span style={{color:'rgb(238, 24, 24)'}}>carreras:</span>
       </h2>
+      <div className="bg-gray-200 pt-2 rounded-t-2xl">
       <form className="max-w-md mx-auto mt-5 relative" onSubmit={handleSubmit}>
         <div className=" grid grid-cols-6 w-full justify-center">
           <div className=" w-full col-span-5">
@@ -177,7 +190,7 @@ const Oferta = () => {
                       className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                     />
                     <label htmlFor={`filter-modalidad-${modalidad}`} className="ml-2 text-gray-700">
-                      {modalidad === 1 ? "Presencial" : modalidad === 2 ? "Distancia" : "Mixto"}
+                      {modalidad === 1 ? "Presencial" : modalidad === 2 ? "Digital" : "Mixto"}
                     </label>
                   </li>
                 ))}
@@ -205,11 +218,11 @@ const Oferta = () => {
           </div>
         </div>
       </form>
-
-      <div className="mt-4">
-        <div className="flex flex-wrap space-x-2 space-y-2">
+      </div>
+      <div className="py-4 bg-gray-200">
+        <div className="flex flex-wrap gap-1 px-3">
           {filters.facultades.map((facultad) => (
-            <div key={facultad} className="flex bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700">
+            <div key={facultad} className="flex bg-white shadow-2xl rounded-full px-3 py-1 text-xs font-semibold text-gray-700 p-2">
               {facultyNames[facultad]}
               <button
                 className="ml-1 text-gray-500 hover:text-gray-700 focus:outline-none"
@@ -222,8 +235,8 @@ const Oferta = () => {
             </div>
           ))}
           {filters.modalidad.map((modalidad) => (
-            <div key={modalidad} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              {modalidad === "1" ? "Presencial" : modalidad === "2" ? "Distancia" : "Mixto"}
+            <div key={modalidad} className="inline-block bg-white shadow-2xl rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 p-2">
+              {modalidad === "1" ? "Presencial" : modalidad === "2" ? "Digital" : "Mixto"}
               <button
                 className="ml-1 text-gray-500 hover:text-gray-700 focus:outline-none"
                 onClick={() => handleRemoveFilter('modalidad', modalidad)}
@@ -235,7 +248,7 @@ const Oferta = () => {
             </div>
           ))}
           {filters.tipo.map((tipo) => (
-            <div key={tipo} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+            <div key={tipo} className="inline-block bg-white shadow-2xl rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 p-2">
               {tipo}
               <button
                 className="ml-1 text-gray-500 hover:text-gray-700 focus:outline-none"
@@ -250,7 +263,7 @@ const Oferta = () => {
         </div>
       </div>
 
-      <div className="">
+      <div className=" shadow-inner">
         <div className="w-full h-screen overflow-auto grid grid-cols-2 lg:grid-cols-4 gap-4">
           {filteredCarreras.map((carrera) => {
             const { codcar, nombre, codare, modo, duracion, nom_landing } = carrera;
@@ -274,134 +287,134 @@ const Oferta = () => {
         </div>
       </div>
       <div id="estudiaEn">
-      <h2 className="bigTitle mt-5 shadow-black">
-        <span style={{ color: 'rgb(97, 96, 96)' }}>Modalidades:</span>
-      </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5">
-        {/* Card 1 */}
-        <div className="rounded-lg overflow-hidden shadow">
-          <div className="px-6">
-            <div className="flex items-center">
-              <img
-                className="img-fluid w-20"
-                src="/landing/ingreso-carreras-ucasal/iconoPresencial.svg"
-                alt="Logo Presencial"
-              />
-              <h2 className="font-extrabold text-base md:text-lg relative text-[#CE3F43]">
-                PRESENCIAL (P)
-              </h2>
-            </div>
-            <div className="mt-3 md:mt-0 text-3xl md:text-xl">
-              <ul
-                className="list-disc list-inside md:text-lg text-sm"
-                style={{ fontFamily: 'Museo Sans',fontWeight: 500 }}
-              >
-                <li>
-                  La educación presencial tiene todos los beneficios del
-                  aprendizaje tradicional: mejora la comprensión, permite el
-                  desarrollo de habilidades socioemocionales y te asegura una
-                  interacción constante en tiempo real con docentes y compañeros.
-                </li>
-                <li>
-                  Implica un cursado en horario fijo en las instalaciones del
-                  Campus Castañares, es decir, una organización clara que
-                  facilitará tu desenvolvimiento en otros aspectos de tu vida
-                  personal como la práctica de la danza, los deportes o el
-                  idioma.
-                </li>
-                <li>Potenciamos tus habilidades con clases personalizadas.</li>
-              </ul>
-            </div>
-            <div className="py-5">
-              <a
-                href="#carreras"
-                onClick={() =>applyModalidadFilter('1')}
-                className="inline-flex items-center px-3 py-2 text-sm font-bold text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
-              >
-                Buscar carreras con esta modalidad (Presencial)
-                <svg
-                  className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 14 10"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M1 5h12m0 0L9 1m4 4L9 9"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
+  <h2 className="bigTitle mt-5 shadow-black">
+    <span style={{ color: 'rgb(97, 96, 96)' }}>Modalidades:</span>
+  </h2>
+  <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5">
+    {/* Card 1 */}
+    <div className="rounded-lg overflow-hidden shadow flex flex-col justify-between h-full">
+      <div className="px-6 flex-grow">
+        <div className="flex items-center">
+          <img
+            className="img-fluid w-20"
+            src="/landing/ingreso-carreras-ucasal/iconoPresencial.svg"
+            alt="Logo Presencial"
+          />
+          <h2 className="font-extrabold text-base md:text-lg relative text-[#CE3F43]">
+            PRESENCIAL (P)
+          </h2>
         </div>
-
-        {/* Card 2 */}
-        <div className="rounded-lg overflow-hidden shadow">
-          <div className="px-6">
-            <div className="flex items-center">
-              <img
-                className="img-fluid w-20"
-                src="/landing/ingreso-carreras-ucasal/iconoVirtual.svg"
-                alt="Logo Digital"
-              />
-              <h2 className="font-extrabold text-base md:text-lg relative text-[#003D7C]">
-                DIGITAL (D)
-              </h2>
-            </div>
-            <div className="mt-3 md:mt-0 text-3xl md:text-xl">
-              <ul
-                className="list-disc list-inside md:text-lg text-sm"
-                style={{ fontFamily: 'Museo Sans',fontWeight: 500 }}
-              >
-                <li>
-                  La educación digital es 100% online, adaptándose a tu realidad.
-                </li>
-                <li>
-                  Tendrás acceso a recursos de diversos formatos en el
-                  dispositivo que prefieras, entornos y sistemas de cátedras
-                  virtuales para que tu experiencia sea personalizada.
-                </li>
-                <li>
-                  Audios, video clases, cápsulas de conocimiento, guías de
-                  aprendizaje, bibliotecas virtuales, webinarios y
-                  videoconferencias son solo algunos de los recursos en formato
-                  sincrónico y asincrónico que tendrás disponible 24/7.
-                </li>
-                <li>Disfrutá de espacios físicos en tu sede y aprendé en comunidad.</li>
-              </ul>
-            </div>
-            <div className="py-5">
-              <a
-                href="#carreras"
-                onClick={()=> applyModalidadFilter('2')}
-                className="buttono inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
-                Buscar carreras con esta modalidad (Distancia)
-                <svg
-                  className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 14 10"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M1 5h12m0 0L9 1m4 4L9 9"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
+        <div className="mt-3 md:mt-0 text-3xl md:text-xl">
+          <ul
+            className="list-disc list-inside md:text-lg text-sm"
+            style={{ fontFamily: 'Museo Sans', fontWeight: 500 }}
+          >
+            <li>
+              La educación presencial tiene todos los beneficios del aprendizaje
+              tradicional: mejora la comprensión, permite el desarrollo de habilidades
+              socioemocionales y te asegura una interacción constante en tiempo real
+              con docentes y compañeros.
+            </li>
+            <li>
+              Implica un cursado en horario fijo en las instalaciones del Campus
+              Castañares, es decir, una organización clara que facilitará tu desenvolvimiento
+              en otros aspectos de tu vida personal como la práctica de la danza, los
+              deportes o el idioma.
+            </li>
+            <li>Potenciamos tus habilidades con clases personalizadas.</li>
+          </ul>
         </div>
       </div>
+      <div className="py-5 flex justify-center">
+        <a
+          href="#carreras"
+          onClick={() => applyModalidadFilter('1')}
+          className="inline-flex items-center px-3 py-2 text-sm font-bold text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+        >
+          Buscar carreras con esta modalidad (Presencial)
+          <svg
+            className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 10"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
+
+    {/* Card 2 */}
+    <div className="rounded-lg overflow-hidden shadow flex flex-col justify-between h-full">
+      <div className="px-6 flex-grow">
+        <div className="flex items-center">
+          <img
+            className="img-fluid w-20"
+            src="/landing/ingreso-carreras-ucasal/iconoVirtual.svg"
+            alt="Logo Digital"
+          />
+          <h2 className="font-extrabold text-base md:text-lg relative text-[#003D7C]">
+            DIGITAL (D)
+          </h2>
+        </div>
+        <div className="mt-3 md:mt-0 text-3xl md:text-xl">
+          <ul
+            className="list-disc list-inside md:text-lg text-sm"
+            style={{ fontFamily: 'Museo Sans', fontWeight: 500 }}
+          >
+            <li>
+              La educación digital es 100% online, adaptándose a tu realidad.
+            </li>
+            <li>
+              Tendrás acceso a recursos de diversos formatos en el dispositivo que prefieras,
+              entornos y sistemas de cátedras virtuales para que tu experiencia sea personalizada.
+            </li>
+            <li>
+              Audios, video clases, cápsulas de conocimiento, guías de aprendizaje,
+              bibliotecas virtuales, webinarios y videoconferencias son solo algunos
+              de los recursos en formato sincrónico y asincrónico que tendrás disponible 24/7.
+            </li>
+            <li>
+              Disfrutá de espacios físicos en tu sede y aprendé en comunidad.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className="py-5 flex justify-center">
+        <a
+          href="#carreras"
+          onClick={() => applyModalidadFilter('2')}
+          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Buscar carreras con esta modalidad (Digital)
+          <svg
+            className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 10"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
     </div>
     
   );

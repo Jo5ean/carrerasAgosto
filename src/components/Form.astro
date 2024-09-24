@@ -4,46 +4,20 @@ import Formu from "./Formu.astro";
 ---
 <Container>
   <div class="grid md:grid-cols-2 md:gap-6">
-    <div
-    class="hidden lg:block xl:block [&>p]:text-gray-600 [&>p]:text-lg [&>p]:font-medium [&>p]:my-2"
-  >
-    <h2 class="bigTitle text-3xl my-3" style="color: rgb(97, 96, 96)">
-      ¡Se parte de <span style="text-red-600">lo que se viene</span>!
-    </h2>
-    <h3 class="text-gray-600 text-xl font-medium">
-      Queremos ofrecerte mucho más que una carrera universitaria.<br />
-      <br />
-      Viví una
-      <b>experiencia educativa</b> completamente diferente, en comunidad. Dá el primer
-      paso, nosotros te acompañamos. Cursá tu año intensivo.
-    </h3>
-    <!-- https://www.youtube.com/embed/0RbmWT5TcDk?si=vL4UDbjvjAXAVLRU -->
-    <div
-      class="flex justify-center items-center shadow-xl md:mt-5 overflow-hidden w-7/12 mx-auto"
-    >
-      <video
-        autoplay
-        muted
-        loop
-        controls
-        style="width:100%;"
-        aria-label="En que consiste estudiar en nuestra universidad"
-        title="Título del video"
-      >
-        <source
-          src="https://www.ucasal.edu.ar/landing/public/en-que-consiste-estudiar-en-nuestra-univ.webm"
-          type="video/webm"
-        />
-        <track
-          src="subtitles_es.vtt"
-          kind="subtitles"
-          srclang="es"
-          label="Español"
-        />
-        Tu navegador no soporta este video.
-      </video>
+    <div class="hidden lg:block xl:block [&>p]:text-gray-600 [&>p]:text-lg [&>p]:font-medium [&>p]:my-2">
+      <h2 class="text-gray-600 text-3xl font-semibold my-3">
+        ¡Se parte de <span class="text-red-600">lo que se viene</span>!
+      </h2>
+      <h3 class="text-gray-600 text-xl font-medium">
+        Queremos ofrecerte mucho más que una carrera universitaria.<br>
+        <br>
+        Viví una <b>experiencia educativa</b> completamente diferente, en comunidad.<br> Dá el primer paso, nosotros te
+        acompañamos.
+      </h3>
+      <div class="flex justify-center items-center shadow-2xl md:mt-5 overflow-hidden w-9/12 mx-auto">
+        <lite-youtube videoid="MebUIApbWmk" class="w-full h-full"></lite-youtube>
+      </div>
     </div>
-  </div>
 
   <div class="flex items-center justify-center lg:justify-end mt-5 mx-2">
     <Formu />
