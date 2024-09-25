@@ -292,12 +292,12 @@ const Oferta = () => {
   </h2>
   <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5">
     {/* Card 1 */}
-    <div className="rounded-lg overflow-hidden shadow flex flex-col justify-between h-full">
-      <div className="px-6 flex-grow">
+    <div className="rounded-lg overflow-hidden flex flex-col justify-between h-full">
+      <div className="flex-grow">
         <div className="flex items-center">
           <img
             className="img-fluid w-20"
-            src="/landing/ingreso-carreras-ucasal/iconoPresencial.svg"
+            src="/landing/ingreso-carreras-ucasal-aut/iconoPresencial.svg"
             alt="Logo Presencial"
           />
           <h2 className="font-extrabold text-base md:text-lg relative text-[#CE3F43]">
@@ -352,12 +352,12 @@ const Oferta = () => {
     </div>
 
     {/* Card 2 */}
-    <div className="rounded-lg overflow-hidden shadow flex flex-col justify-between h-full">
-      <div className="px-6 flex-grow">
+    <div className="rounded-lg overflow-hidden flex flex-col justify-between h-full">
+      <div className="flex-grow">
         <div className="flex items-center">
           <img
             className="img-fluid w-20"
-            src="/landing/ingreso-carreras-ucasal/iconoVirtual.svg"
+            src="/landing/ingreso-carreras-ucasal-aut/iconoVirtual.svg"
             alt="Logo Digital"
           />
           <h2 className="font-extrabold text-base md:text-lg relative text-[#003D7C]">

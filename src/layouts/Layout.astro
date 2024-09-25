@@ -25,6 +25,7 @@ import { ViewTransitions } from "astro:transitions";
     />
     <!-- <script src="../scripts/scripts.js"></script> -->
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script is:inline>
 		// ###### FUNCION ASINCRONA DE CARGA DE LA OFERTA DE CARRERAS ######
 		(async () => {
@@ -58,6 +59,58 @@ import { ViewTransitions } from "astro:transitions";
 			// Puedes agregar más lógica aquí, como mostrar un mensaje al usuario.
 		  }
 		})();
+		fetch('https://www.ucasal.edu.ar/landing/assets/datosCarreras.json')
+      .then((response) => response.json())
+      .then((json) => {
+        // Asumiendo que el archivo JSON tiene una clave "promoción" con el texto de la promoción
+        const datosTarjeta = json.tarjeta;
+		console.log(datosTarjeta);
+        const banner = json.banner;
+        const videoURL = json.videoURL;
+        const elementoVideo = document.getElementById('video');
+        const promociones = json.promocion;
+        const elementoPromocion = document.getElementById('promo');
+        let index = 0;
+
+        // Inicializa el contenido de la promoción con el primer mensaje
+        elementoPromocion.innerHTML = promociones[index];
+
+        // Función para cambiar el texto de la promoción cada 3 segundos
+        function cambiarTexto() {
+          index = (index + 1) % promociones.length;
+          elementoPromocion.innerHTML = promociones[index];
+        }
+
+        // Iniciar el intervalo para cambiar el texto
+        setInterval(cambiarTexto, 3000);
+
+        // Actualiza el componente de Tarjeta Macro
+        document.getElementById('tarjetaMacro').innerHTML = `
+                <img class="w-1/2 bg-white rounded-2xl p-4" src="${datosTarjeta.macro.imagen}" alt="tarjeta macro">
+                <p class="text-md">${datosTarjeta.macro.descripcion}</p>
+            `;
+
+        // Actualiza el componente de Tarjeta Naranja
+        document.getElementById('tarjetaNaranja').innerHTML = `
+                <img class="w-1/2 bg-white rounded-2xl p-4" src="${datosTarjeta.naranja.imagen}" alt="tarjeta naranja">
+                <p class="text-md">${datosTarjeta.naranja.descripcion}</p>
+            `;
+
+        // Actualiza el componente de Tarjeta Banco
+        document.getElementById('tarjetaBanco').innerHTML = `
+                <img class="w-1/2 bg-white rounded-2xl p-4" src="${datosTarjeta.banco.imagen}" alt="tarjeta banco">
+                <p class="text-md">${datosTarjeta.banco.descripcion}</p>
+            `;
+
+        // Actualiza el componente banner
+        document.getElementById('banner').innerHTML = `
+                <source src="${banner.video}" type="video/mp4">
+                <source src="${banner.videoOgg}" type="video/ogg">
+            `;
+
+        // Actualiza el elemento de video
+        elementoVideo.setAttribute('src', videoURL);
+      });
 	  </script>
 	  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet"> 
 	  <script src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.5.0/lite-youtube.js"></script> 
@@ -65,5 +118,6 @@ import { ViewTransitions } from "astro:transitions";
   <body>
     <slot />
     <script is:inline src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+	<script is:inline src="https://www.google.com/recaptcha/api.js" async defer></script>
   </body>
 </html>
