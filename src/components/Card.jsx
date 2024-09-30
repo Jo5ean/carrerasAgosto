@@ -13,7 +13,7 @@ const Card = ({ codcar, codare, nombre, modo, duracion, nom }) => {
           {/* Parte 2: Icono */}
           <img
             className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-[75%] lg:-translate-y-[5%] w-16 h-12 lg:w-20 lg:h-14"
-            src={`/landing/ingreso-carreras-ucasal-aut/iconoCarrera/${codare === "30" ? "13" : codare}.svg`}
+            src={`/landing/ingreso-carreras-ucasal-aut/iconoCarrera/${codare ? (codare === "30" ? "13" : codare) : "default"}.svg`}
             alt="icono carta"
           />
           {/* Parte 3: Título */}
