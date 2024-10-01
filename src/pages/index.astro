@@ -64,4 +64,13 @@ import Sedes from "../components/Sedes.astro";
     font-size: 1.5em;
     font-family: "Museo Sans";
   }
+  .neumorphism-component {
+  background-color: #f0f0f0; /* Fondo más claro */
+  border-radius: 0 0 15px 15px; /* Bordes redondeados solo en la parte inferior */
+  box-shadow: 
+    inset 10px 10px 20px #d1d1d1,  /* Sombra interna oscura (ajustada para el nuevo color de fondo) */
+    inset -10px -10px 20px #ffffff, /* Sombra interna clara */
+    10px 10px 20px rgba(0, 0, 0, 0.2), /* Sombra externa oscura */
+    -10px -10px 20px rgba(255, 255, 255, 0.7); /* Sombra externa clara */
+}
 </style>

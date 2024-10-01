@@ -55,7 +55,7 @@ function getModeText(modoArray) {
       <div class="justify-end hidden md:flex">
         <Button
           label="¡Quiero inscribirme!"
-          dir="https://www.ucasal.edu.ar/inscripciones"
+          dir="location.href='https://www.ucasal.edu.ar/inscripciones/'"
           girar="derecha"
         />
       </div>
@@ -89,7 +89,7 @@ function getModeText(modoArray) {
       <div class="w-full flex flex-col bg-white md:grid md:grid-flow-col">
         <div class="w-full">
           <img
-            src=`/landing/ingreso-carreras-ucasal-aut/agosto/${carrera ? carrera.nom_landing : "general"}.jpg`
+            src=`/landing/public/cards/${carrera ? carrera.codcar : "general"}.webp`
             alt={carrera ? carrera.nombre : "imagen-carrera"}
             class="w-full rounded shadow-xl max-md:opacity-80"
           />
@@ -130,7 +130,7 @@ function getModeText(modoArray) {
               class="bg-red-600 w-full h-auto lg:h-[50%] text-white text-center py-2 lg:py-8 px-6 rounded flex flex-col justify-center"
             >
               <p class="text-xs xl:text-lg">Modalidad</p>
-              <p class="text-xs xl:text-xl font-bold">
+              <p class="text-xs xl:text-base font-bold">
                 {carrera ? getModeText(carrera.modo) : "Consultar"}
               </p>
             </div>

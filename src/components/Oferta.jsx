@@ -263,7 +263,7 @@ const Oferta = () => {
         </div>
       </div>
 
-      <div className=" shadow-inner">
+      <div className="neumorphism-component">
         <div className="w-full h-screen overflow-auto grid grid-cols-2 lg:grid-cols-4 gap-4">
           {filteredCarreras.map((carrera) => {
             const { codcar, nombre, codare, modo, duracion, nom_landing } = carrera;
